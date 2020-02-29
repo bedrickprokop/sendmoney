@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Padding -->
+    <dimen name="smallest_padding2">2dp</dimen>
+    <dimen name="smallest_padding">4dp</dimen>
+    <dimen name="smaller_padding">8dp</dimen>
+    <dimen name="small_padding">12dp</dimen>
+    <dimen name="medium_padding">16dp</dimen>
+    <dimen name="big_padding">20dp</dimen>
+    <dimen name="bigger_padding">24dp</dimen>
+    <dimen name="biggest_padding">28dp</dimen>
+    <dimen name="biggest_padding2">32dp</dimen>
+
+    <!-- Margin -->
+    <dimen name="smallest_margin2">2dp</dimen>
+    <dimen name="smallest_margin">4dp</dimen>
+    <dimen name="smaller_margin">8dp</dimen>
+    <dimen name="small_margin">12dp</dimen>
+    <dimen name="medium_margin">16dp</dimen>
+    <dimen name="big_margin">20dp</dimen>
+    <dimen name="bigger_margin">24dp</dimen>
+    <dimen name="biggest_margin">28dp</dimen>
+    <dimen name="biggest_margin2">32dp</dimen>
+    <dimen name="biggest_margin3">36dp</dimen>
+
+    <!-- Radius -->
+    <dimen name="smallest_radius">5dp</dimen>
+    <dimen name="smaller_radius">10dp</dimen>
+    <dimen name="small_radius">15dp</dimen>
+    <dimen name="medium_radius">20dp</dimen>
+
+    <!-- Text Size -->
+    <dimen name="text_size_logo">26sp</dimen>
+    <dimen name="text_size_appbar">16sp</dimen>
+    <dimen name="text_size_button">15sp</dimen>
+
+    <dimen name="text_size_smallest">11sp</dimen>
+    <dimen name="text_size_smaller">12sp</dimen>
+    <dimen name="text_size_small">13sp</dimen>
+    <dimen name="text_size_medium">14sp</dimen>
+    <dimen name="text_size_big">15sp</dimen>
+    <dimen name="text_size_bigger">16sp</dimen>
+    <dimen name="text_size_biggest">17sp</dimen>
+
+    <dimen name="text_size_small_title">18sp</dimen>
+    <dimen name="text_size_medium_title">20sp</dimen>
+    <dimen name="text_size_big_title">22sp</dimen>
+    <dimen name="text_size_bigger_title">24sp</dimen>
+
+
+    <dimen name="act_home_cv_height">200dp</dimen>
+
+</resources>

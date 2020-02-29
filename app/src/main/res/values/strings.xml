@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">SendMoney</string>
+
+
+    <!-- Home Activity -->
+    <string name="act_home_tv_user_name">Bedrick Prokop</string>
+    <string name="act_home_tv_user_email">bedrick.prokop@gmail.com</string>
+    <string name="act_home_ib_send_money">Send money</string>
+    <string name="act_home_ib_history">History</string>
 </resources>
