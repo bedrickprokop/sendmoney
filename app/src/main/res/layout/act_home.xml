@@ -13,87 +13,90 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorBackground"
-        android:padding="@dimen/medium_padding">
+        android:background="@drawable/bg_default"
+        android:padding="@dimen/biggest_padding2">
+
+        <ProgressBar
+            android:id="@+id/pbLoading"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="@dimen/act_home_pb_dimen"
+            android:layout_height="@dimen/act_home_pb_dimen"
+            android:background="@drawable/bg_circular"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="65"
+            android:progressDrawable="@drawable/bg_circular_progress"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2" />
+
+        <ImageView
+            android:id="@+id/ivUserPicture"
+            android:layout_width="@dimen/act_home_iv_dimen"
+            android:layout_height="@dimen/act_home_iv_dimen"
+            android:layout_marginTop="7.5dp"
+            android:background="@drawable/ic_avatar"
+            android:contentDescription="@string/act_home_iv_user"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2" />
 
         <TextView
             android:id="@+id/tvUserName"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_marginTop="@dimen/small_margin"
             android:text="@string/act_home_tv_user_name"
-            android:textColor="@color/colorPrimaryText"
+            android:textColor="@color/colorWhite"
             android:textSize="@dimen/text_size_medium_title"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.10" />
+            app:layout_constraintTop_toBottomOf="@+id/ivUserPicture" />
 
         <TextView
             android:id="@+id/tvUserEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/act_home_tv_user_email"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_big"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
+
+        <Button
+            android:id="@+id/btSendMoney"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/act_home_tv_user_email"
-            android:textColor="@color/colorPrimaryText"
-            android:textSize="@dimen/text_size_big"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:layout_marginBottom="@dimen/medium_margin"
+            android:background="@drawable/bg_button_selector"
+            android:text="@string/act_home_ib_send_money"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_biggest"
+            app:layout_constraintBottom_toTopOf="@+id/btHistory"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:background="@drawable/bg_button_selector"
+            android:text="@string/act_home_ib_history"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_biggest"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.15" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cvSendMoney"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/act_home_cv_height"
-            android:layout_marginEnd="@dimen/smaller_margin"
-            app:cardBackgroundColor="@color/colorAccent"
-            app:cardCornerRadius="@dimen/medium_radius"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/cvShowHistory"
-            app:layout_constraintHorizontal_weight="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5">
-
-            <ImageButton
-                android:id="@+id/btSendMoney"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:background="@null"
-                android:contentDescription="@string/act_home_ib_send_money"
-                android:src="@drawable/ic_transfer_48dp" />
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cvShowHistory"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/act_home_cv_height"
-            android:layout_marginStart="@dimen/smaller_margin"
-            app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="@dimen/medium_radius"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_weight="0.5"
-            app:layout_constraintStart_toEndOf="@+id/cvSendMoney"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.45">
-
-            <ImageButton
-                android:id="@+id/btShowHistory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:background="@null"
-                android:contentDescription="@string/act_home_ib_history"
-                android:src="@drawable/ic_history_48dp" />
-
-        </androidx.cardview.widget.CardView>
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
