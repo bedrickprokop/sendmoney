@@ -10,7 +10,7 @@ import br.com.example.sendmoney.viewmodel.ContactsViewModel
 
 class ContactsActivity : AppCompatActivity() {
 
-    private lateinit var bind: ActContactsBinding;
+    private lateinit var bind: ActContactsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

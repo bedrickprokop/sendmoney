@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -24,7 +25,7 @@
             android:background="@drawable/bg_circular"
             android:indeterminate="false"
             android:max="100"
-            android:progress="65"
+            android:progress="0"
             android:progressDrawable="@drawable/bg_circular_progress"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -50,24 +51,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_margin"
-            android:text="@string/act_home_tv_user_name"
+            android:text="@{viewModel.currentUser.name}"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/text_size_medium_title"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivUserPicture" />
+            app:layout_constraintTop_toBottomOf="@+id/ivUserPicture"
+            tools:text="@string/act_home_tv_user_name" />
 
         <TextView
             android:id="@+id/tvUserEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/act_home_tv_user_email"
+            android:text="@{viewModel.currentUser.email}"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/text_size_big"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
+            app:layout_constraintTop_toBottomOf="@+id/tvUserName"
+            tools:text="@string/act_home_tv_user_email" />
 
         <Button
             android:id="@+id/btSendMoney"
@@ -77,20 +80,22 @@
             android:layout_marginEnd="@dimen/medium_margin"
             android:layout_marginBottom="@dimen/medium_margin"
             android:background="@drawable/bg_button_selector"
+            android:enabled="false"
             android:text="@string/act_home_ib_send_money"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/text_size_biggest"
-            app:layout_constraintBottom_toTopOf="@+id/btHistory"
+            app:layout_constraintBottom_toTopOf="@+id/btShowHistory"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/btHistory"
+            android:id="@+id/btShowHistory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/medium_margin"
             android:layout_marginEnd="@dimen/medium_margin"
             android:background="@drawable/bg_button_selector"
+            android:enabled="false"
             android:text="@string/act_home_ib_history"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/text_size_biggest"
