@@ -1,4 +1,4 @@
-package br.com.example.sendmoney.view
+package br.com.example.sendmoney.view.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

@@ -8,4 +8,8 @@
     <string name="act_home_ib_send_money">Enviar dinheiro</string>
     <string name="act_home_ib_history">Historico de envios</string>
     <string name="act_home_iv_user">User</string>
+
+
+    <string name="act_contacts_ab_title">ENVIAR DINHEIRO</string>
+    <string name="item_contacts_iv_contact">Contact picture</string>
 </resources>

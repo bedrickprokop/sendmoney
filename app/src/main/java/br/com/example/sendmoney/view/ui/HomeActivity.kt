@@ -1,4 +1,4 @@
-package br.com.example.sendmoney.view
+package br.com.example.sendmoney.view.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -26,6 +26,8 @@ class HomeActivity : AppCompatActivity() {
         bind = DataBindingUtil.setContentView(this, R.layout.act_home)
         bind.viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
 
+        val user = getUserSession(intent)
+
         bind.btSendMoney.setOnClickListener {
             val intent = Intent(
                 this, ContactsActivity::class.java
@@ -39,11 +41,6 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val user = User(
-            getString(R.string.act_home_tv_user_name),
-            getString(R.string.act_home_tv_user_email),
-            null
-        )
         bind.viewModel?.currentUser = user
         bind.viewModel?.loadTokenObservable(user)
             ?.observe(this, loadTokenObservable())
@@ -57,5 +54,19 @@ class HomeActivity : AppCompatActivity() {
                 bind.btSendMoney.isEnabled = true
             }
         }
+    }
+
+    /**
+     * Apenas para simular que o usuário foi 'buscado' da 'sessão', ou seja, sharedpreferences, database, etc
+     */
+    private fun getUserSession(intent: Intent?): User {
+        val user = User(
+            1,
+            getString(R.string.act_home_tv_user_name),
+            getString(R.string.act_home_tv_user_email),
+            null,
+            null
+        )
+        return user
     }
 }

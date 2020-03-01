@@ -20,13 +20,13 @@
         <ProgressBar
             android:id="@+id/pbLoading"
             style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="@dimen/act_home_pb_dimen"
-            android:layout_height="@dimen/act_home_pb_dimen"
-            android:background="@drawable/bg_circular"
+            android:layout_width="@dimen/act_home_pb_user"
+            android:layout_height="@dimen/act_home_pb_user"
+            android:background="@drawable/bg_circular_progress_default"
             android:indeterminate="false"
             android:max="100"
             android:progress="0"
-            android:progressDrawable="@drawable/bg_circular_progress"
+            android:progressDrawable="@drawable/bg_circular_progress_colored"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,8 +35,8 @@
 
         <ImageView
             android:id="@+id/ivUserPicture"
-            android:layout_width="@dimen/act_home_iv_dimen"
-            android:layout_height="@dimen/act_home_iv_dimen"
+            android:layout_width="@dimen/act_home_iv_user"
+            android:layout_height="@dimen/act_home_iv_user"
             android:layout_marginTop="7.5dp"
             android:background="@drawable/ic_avatar"
             android:contentDescription="@string/act_home_iv_user"

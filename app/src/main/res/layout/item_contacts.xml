@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/smallest_padding"
+        android:paddingBottom="@dimen/smallest_padding">
+
+        <ImageView
+            android:id="@+id/ivContactPicture"
+            android:layout_width="@dimen/item_contacts_iv_contact"
+            android:layout_height="@dimen/item_contacts_iv_contact"
+            android:background="@drawable/bg_circular_image_view"
+            android:contentDescription="@string/item_contacts_iv_contact"
+            android:padding="10dp"
+            android:src="@drawable/ic_avatar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvContactName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/smaller_margin"
+            android:layout_marginTop="@dimen/bigger_margin"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_medium_title"
+            app:layout_constraintBottom_toTopOf="@+id/tvContactPhone"
+            app:layout_constraintStart_toEndOf="@+id/ivContactPicture"
+            app:layout_constraintTop_toTopOf="@id/ivContactPicture"
+            tools:text="Bilbo Baggins" />
+
+        <TextView
+            android:id="@+id/tvContactPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/smaller_margin"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/text_size_bigger"
+            app:layout_constraintStart_toEndOf="@+id/ivContactPicture"
+            app:layout_constraintTop_toBottomOf="@+id/tvContactName"
+            tools:text="(11) 998 834 023" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

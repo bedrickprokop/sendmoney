@@ -48,7 +48,10 @@
     <dimen name="text_size_big_title">22sp</dimen>
     <dimen name="text_size_bigger_title">24sp</dimen>
 
-    <dimen name="act_home_iv_dimen">130dp</dimen>
-    <dimen name="act_home_pb_dimen">150dp</dimen>
+    <dimen name="act_home_iv_user">130dp</dimen>
+    <dimen name="act_home_pb_user">150dp</dimen>
+
+    <dimen name="act_contacts_v_height">1dp</dimen>
+    <dimen name="item_contacts_iv_contact">100dp</dimen>
 
 </resources>
