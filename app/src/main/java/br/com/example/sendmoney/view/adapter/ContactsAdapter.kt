@@ -44,7 +44,7 @@ class ContactsAdapter(
     }
 
     override fun getItemCount(): Int {
-        return mData!!.size
+        return if (mData.isNullOrEmpty()) 0 else mData!!.size
     }
 
     fun setData(contactList: List<Contact>) {

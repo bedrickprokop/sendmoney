@@ -37,7 +37,7 @@ class TransferHistoryAdapter(
     }
 
     override fun getItemCount(): Int {
-        return mData!!.size
+        return if (mData.isNullOrEmpty()) 0 else mData!!.size
     }
 
     fun setData(transferList: List<Transfer>) {

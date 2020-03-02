@@ -1,6 +1,5 @@
 package br.com.example.sendmoney.model.repository
 
-import android.os.Handler
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import br.com.example.sendmoney.model.HttpApiGenerator
@@ -12,7 +11,8 @@ import retrofit2.Response
 
 class TokenRepository private constructor(/*application: Application*/) {
 
-    private var tokenApi: TokenApi = HttpApiGenerator<TokenApi>().gen(TokenApi::class.java)
+    private var tokenApi: TokenApi = HttpApiGenerator<TokenApi>()
+        .gen(TokenApi::class.java)
 
     companion object {
         private var instance: TokenRepository? = null
@@ -34,9 +34,7 @@ class TokenRepository private constructor(/*application: Application*/) {
             }
 
             override fun onFailure(call: Call<String>, t: Throwable) {
-                Handler().postDelayed({
-                    data.postValue("teste")
-                }, 1000)
+                //TODO fazer tratament de erro
             }
         })
         return data
