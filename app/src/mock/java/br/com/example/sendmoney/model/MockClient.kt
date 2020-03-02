@@ -1,5 +1,6 @@
 package br.com.example.sendmoney.model
 
+import android.os.SystemClock
 import okhttp3.*
 
 class MockClient : Interceptor {
@@ -24,7 +25,7 @@ class MockClient : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val url = chain.request().url()
-        val response = when (url.encodedPath()) {
+        val data = when (url.encodedPath()) {
             POST_TOKEN_GENERATE_ENDPOINT -> POST_TOKEN_GENERATE_RESPONSE
             GET_CONTACTS_ENDPOINT -> GET_CONTACTS_RESPONSE
             GET_TRANSFERS_ENDPOINT -> GET_TRANSFERS_RESPONSE
@@ -32,18 +33,23 @@ class MockClient : Interceptor {
             else -> EMPTY_STRING
         }
 
-        return Response.Builder()
+        val response = Response.Builder()
             .code(200)
-            .message(response)
+            .message(data)
             .request(chain.request())
             .protocol(Protocol.HTTP_1_1)
             .body(
                 ResponseBody.create(
                     MediaType.parse(CONTENT_TYPE_VALUE),
-                    response.toByteArray()
+                    data.toByteArray()
                 )
             )
             .addHeader(CONTENT_TYPE_KEY, CONTENT_TYPE_VALUE)
             .build()
+
+        //Cria um delay aqui simulando uma latencia do servidor para, então, exibir o ProgressDialog
+        SystemClock.sleep(1500);
+
+        return response
     }
 }
