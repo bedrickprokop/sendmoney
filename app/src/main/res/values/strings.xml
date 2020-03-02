@@ -21,4 +21,8 @@
     <!-- TransferHistory Activity -->
     <string name="act_history_ab_title">HISTÓRICO DE ENVIOS</string>
     <string name="item_transfer_history_iv_transfer">Imagem da transferência</string>
+
+
+    <string name="result_message_send_money_success">Valor transferido com sucesso!</string>
+    <string name="result_message_send_money_error">Erro ao realizar transfêrencia!</string>
 </resources>

@@ -1,7 +1,9 @@
 package br.com.example.sendmoney.view.ui
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -11,6 +13,7 @@ import br.com.example.sendmoney.SendMoneyConsts
 import br.com.example.sendmoney.databinding.ActHomeBinding
 import br.com.example.sendmoney.model.entity.User
 import br.com.example.sendmoney.viewmodel.HomeViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class HomeActivity : BaseActivity() {
 
@@ -33,7 +36,7 @@ class HomeActivity : BaseActivity() {
             val intent = Intent(
                 this, ContactsActivity::class.java
             ).putExtra(SendMoneyConsts.EXTRA_TOKEN, bind.viewModel?.currentUser?.token)
-            startActivity(intent)
+            startActivityForResult(intent, SendMoneyConsts.REQUEST_CODE_CONTACTS)
         }
         bind.btShowHistory.setOnClickListener {
             val intent = Intent(
@@ -46,6 +49,18 @@ class HomeActivity : BaseActivity() {
         bind.viewModel?.currentUser = user
         bind.viewModel?.loadTokenObservable(user)
             ?.observe(this, loadTokenObservable())
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == SendMoneyConsts.REQUEST_CODE_CONTACTS) {
+                val resultMessage = data?.getCharSequenceExtra(SendMoneyConsts.RESULT_MESSAGE)
+                Handler().postDelayed({
+                    Snackbar.make(bind.clContainer, resultMessage!!, Snackbar.LENGTH_LONG).show()
+                }, 500)
+            }
+        }
     }
 
     private fun loadTokenObservable(): Observer<String> {

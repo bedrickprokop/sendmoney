@@ -1,5 +1,7 @@
 package br.com.example.sendmoney.view.ui
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
@@ -55,8 +57,13 @@ class ContactsActivity : BaseActivity() {
 
     private fun sendMoneyObservable(): Observer<in Boolean> {
         return Observer {
-            //TODO Exibir feedback sucesso ou falha
-            //TODO Voltar para a tela home
+            val intent = Intent()
+            intent.putExtra(
+                SendMoneyConsts.RESULT_MESSAGE,
+                getString(R.string.result_message_send_money_success)
+            )
+            setResult(Activity.RESULT_OK, intent)
+
             hideProgressDialog()
             finish()
         }
