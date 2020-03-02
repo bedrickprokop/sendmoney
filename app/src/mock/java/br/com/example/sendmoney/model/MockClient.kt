@@ -7,7 +7,7 @@ class MockClient : Interceptor {
     val POST_TOKEN_GENERATE_ENDPOINT = "/sendmoney/token/generate"
     val POST_TOKEN_GENERATE_RESPONSE: String = """"CD344689F90""""
 
-    val GET_CONTACTS_ENDPOINT = "/sendmoney/user/contacts//CD344689F90"
+    val GET_CONTACTS_ENDPOINT = "/sendmoney/user/contacts/CD344689F90"
     val GET_CONTACTS_RESPONSE =
         """[{"id":1,"name":"Gollum","phone":"(31) 90383-4001"},{"id":2,"name":"Frodo Baggins","phone":"(31) 99801-2942"},{"id":3,"name":"Bilbo Baggins","phone":"(11) 90383-4001"},{"id":4,"name":"Gandalf","phone":"(12) 90383-4001"},{"id":5,"name":"Éowyn","phone":"(11) 90383-4001"},{"id":6,"name":"Arwen Undómiel","phone":"(31) 90383-4001"},{"id":7,"name":"Barbárvore","phone":"(98) 90383-4001"},{"id":8,"name":"Velho Salgueiro-homem","phone":"(97) 90383-4001"},{"id":9,"name":"Fredegar Bolger","phone":"(22) 90383-4001"},{"id":10,"name":"Forlong, o Gordo","phone":"(11) 90383-4001"},{"id":11,"name":"Radagast","phone":"(12) 90383-4001"},{"id":12,"name":"Faramir","phone":"(97) 90383-4001"},{"id":13,"name":"Rei Bruxo de Angmar","phone":"(21) 90383-4001"},{"id":14,"name":"Thórin II Escudo de Carvalho","phone":"(11) 90383-4001"},{"id":15,"name":"Grão Orc","phone":"(31) 90383-4001"}]"""
 

@@ -3,7 +3,6 @@ package br.com.example.sendmoney.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import br.com.example.sendmoney.model.entity.Contact
 import br.com.example.sendmoney.model.entity.Transfer
 import br.com.example.sendmoney.model.entity.User
 import br.com.example.sendmoney.model.repository.TransferRepository

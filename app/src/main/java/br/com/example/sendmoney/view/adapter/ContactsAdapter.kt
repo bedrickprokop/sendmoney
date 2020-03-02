@@ -1,8 +1,6 @@
 package br.com.example.sendmoney.view.adapter
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
