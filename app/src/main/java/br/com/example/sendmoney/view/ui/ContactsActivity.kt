@@ -31,15 +31,32 @@ class ContactsActivity : AppCompatActivity() {
 
         //RecyclerView
         val dividerItemDecoration = DividerItemDecoration(this)
-        adapter = ContactsAdapter(this, null) {
-            //TODO abrir modal with selected contact - it
+        adapter = ContactsAdapter(this, null) { contact ->
+
+            val transferDialog = TransferDialog(this, contact) { value ->
+                //TODO iniciar loading
+                //TODO buscar token
+                bind.viewModel?.sendMoney(contact, value, "token")
+                    ?.observe(this, sendMoneyObservable())
+            }
+            transferDialog.show()
         }
         bind.rvContacts.adapter = adapter
         bind.rvContacts.addItemDecoration(dividerItemDecoration)
         bind.rvContacts.setHasFixedSize(true)
 
         val user = getUserSession()
-        bind.viewModel?.loadContactListObservable(user)?.observe(this, loadContactListObservable())
+        //TODO passar token
+        bind.viewModel?.loadContactListObservable(user, "token")?.observe(this, loadContactListObservable())
+    }
+
+    private fun sendMoneyObservable(): Observer<in Boolean> {
+        return Observer {
+            //TODO Stop loading
+            //TODO Exibir feedback sucesso ou falha
+            //TODO Voltar para a tela home
+            finish()
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

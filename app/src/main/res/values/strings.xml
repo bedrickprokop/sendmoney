@@ -9,7 +9,14 @@
     <string name="act_home_ib_history">Historico de envios</string>
     <string name="act_home_iv_user">User</string>
 
-
+    <!-- Contacts Activity -->
     <string name="act_contacts_ab_title">ENVIAR DINHEIRO</string>
     <string name="item_contacts_iv_contact">Contact picture</string>
+
+
+    <!-- Transfer Dialog -->
+    <string name="dialog_transfer_ib_close">Close</string>
+    <string name="dialog_transfer_tv_value_label">Valor a enviar:</string>
+    <string name="dialog_transfer_et_transfer_value_hint">R$ 0,00</string>
+    <string name="dialog_transfer_bt_transfer_money">Enviar</string>
 </resources>

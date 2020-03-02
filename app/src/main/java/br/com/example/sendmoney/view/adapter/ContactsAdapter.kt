@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.example.sendmoney.R
 import br.com.example.sendmoney.databinding.ItemContactsBinding
 import br.com.example.sendmoney.model.entity.Contact
+import br.com.example.sendmoney.util.StringUtil
 
 
 class ContactsAdapter(
@@ -35,9 +36,10 @@ class ContactsAdapter(
         //TODO Usar framework de imagem - glide, etc
         //holder.bind.ivContactPicture
         holder.bind.clContainer.setOnClickListener {
-            //TODO tratamento de clique
+            listener(contact)
         }
-        holder.bind.tvContactName.text = contact.name
+
+        holder.bind.tvContactName.text = StringUtil.truncate(contact.name, 20)
         holder.bind.tvContactPhone.text = contact.phone
     }
 
