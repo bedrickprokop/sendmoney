@@ -27,7 +27,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".view.ui.HistoryActivity"
+            android:name=".view.ui.TransferHistoryActivity"
             android:screenOrientation="portrait" />
     </application>
 </manifest>

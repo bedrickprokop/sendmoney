@@ -36,7 +36,7 @@ class HomeActivity : AppCompatActivity() {
         }
         bind.btShowHistory.setOnClickListener {
             val intent = Intent(
-                this, HistoryActivity::class.java
+                this, TransferHistoryActivity::class.java
             ).putExtra("token", bind.viewModel?.currentUser?.token)
             startActivity(intent)
         }
@@ -64,6 +64,7 @@ class HomeActivity : AppCompatActivity() {
             1,
             getString(R.string.act_home_tv_user_name),
             getString(R.string.act_home_tv_user_email),
+            null,
             null,
             null
         )

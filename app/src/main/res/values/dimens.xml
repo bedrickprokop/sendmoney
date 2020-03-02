@@ -54,5 +54,6 @@
 
     <dimen name="act_contacts_v_height">1dp</dimen>
     <dimen name="item_contacts_iv_contact">100dp</dimen>
+    <dimen name="item_transfer_history_iv_transfer">100dp</dimen>
     <dimen name="dialog_transfer_et_text_size">30sp</dimen>
 </resources>

@@ -7,22 +7,22 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import br.com.example.sendmoney.R
-import br.com.example.sendmoney.databinding.ActContactsBinding
-import br.com.example.sendmoney.model.entity.Contact
+import br.com.example.sendmoney.databinding.ActTransferHistoryBinding
+import br.com.example.sendmoney.model.entity.Transfer
 import br.com.example.sendmoney.model.entity.User
-import br.com.example.sendmoney.view.adapter.ContactsAdapter
+import br.com.example.sendmoney.view.adapter.TransferHistoryAdapter
 import br.com.example.sendmoney.view.component.DividerItemDecoration
-import br.com.example.sendmoney.viewmodel.ContactsViewModel
+import br.com.example.sendmoney.viewmodel.TransferHistoryViewModel
 
-class ContactsActivity : AppCompatActivity() {
+class TransferHistoryActivity : AppCompatActivity() {
 
-    private lateinit var bind: ActContactsBinding
-    private lateinit var adapter: ContactsAdapter
+    private lateinit var bind: ActTransferHistoryBinding
+    private lateinit var adapter: TransferHistoryAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bind = DataBindingUtil.setContentView(this, R.layout.act_contacts)
-        bind.viewModel = ViewModelProviders.of(this).get(ContactsViewModel::class.java)
+        bind = DataBindingUtil.setContentView(this, R.layout.act_transfer_history)
+        bind.viewModel = ViewModelProviders.of(this).get(TransferHistoryViewModel::class.java)
 
         //ActionBar
         setSupportActionBar(bind.tActionBar)
@@ -31,32 +31,15 @@ class ContactsActivity : AppCompatActivity() {
 
         //RecyclerView
         val dividerItemDecoration = DividerItemDecoration(this)
-        adapter = ContactsAdapter(this, null) { contact ->
-
-            val transferDialog = TransferDialog(this, contact) { value ->
-                //TODO iniciar loading
-                //TODO buscar token
-                bind.viewModel?.sendMoney(contact, value, "token")
-                    ?.observe(this, sendMoneyObservable())
-            }
-            transferDialog.show()
-        }
-        bind.rvContacts.adapter = adapter
-        bind.rvContacts.addItemDecoration(dividerItemDecoration)
-        bind.rvContacts.setHasFixedSize(true)
+        adapter = TransferHistoryAdapter(this, null)
+        bind.rvTransferHistory.adapter = adapter
+        bind.rvTransferHistory.addItemDecoration(dividerItemDecoration)
+        bind.rvTransferHistory.setHasFixedSize(true)
 
         val user = getUserSession()
         //TODO passar token
-        bind.viewModel?.loadContactListObservable(user, "token")?.observe(this, loadContactListObservable())
-    }
-
-    private fun sendMoneyObservable(): Observer<in Boolean> {
-        return Observer {
-            //TODO Stop loading
-            //TODO Exibir feedback sucesso ou falha
-            //TODO Voltar para a tela home
-            finish()
-        }
+        bind.viewModel?.loadTransferHistoryObservable(user, "token")
+            ?.observe(this, loadTransferHistoryObservable())
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -66,7 +49,7 @@ class ContactsActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun loadContactListObservable(): Observer<List<Contact>> {
+    private fun loadTransferHistoryObservable(): Observer<List<Transfer>> {
         return Observer {
             adapter.setData(it)
         }

@@ -1,12 +1,13 @@
 package br.com.example.sendmoney.model.api
 
+import br.com.example.sendmoney.model.entity.Transfer
 import retrofit2.Call
 import retrofit2.http.*
 
 interface TransferApi {
 
-    @GET("transfer")
-    fun getTransfers(@Path("token") token: String)
+    @GET("transfer/{token}")
+    fun getTransfers(@Path("token") token: String): Call<List<Transfer>>
 
     @FormUrlEncoded
     @POST("transfer/sendmoney")

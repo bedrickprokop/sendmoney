@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/smallest_padding"
+        android:paddingBottom="@dimen/smallest_padding">
+
+        <ImageView
+            android:id="@+id/ivTransferPicture"
+            android:layout_width="@dimen/item_transfer_history_iv_transfer"
+            android:layout_height="@dimen/item_transfer_history_iv_transfer"
+            android:background="@drawable/bg_circular_image_view"
+            android:contentDescription="@string/item_transfer_history_iv_transfer"
+            android:padding="10dp"
+            android:src="@drawable/ic_avatar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTransferName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/smaller_margin"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_medium_title"
+            app:layout_constraintBottom_toTopOf="@+id/tvTransferPhone"
+            app:layout_constraintStart_toEndOf="@+id/ivTransferPicture"
+            app:layout_constraintTop_toTopOf="@id/ivTransferPicture"
+            tools:text="Bilbo Baggins" />
+
+        <TextView
+            android:id="@+id/tvTransferPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/smaller_margin"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/text_size_bigger"
+            app:layout_constraintStart_toEndOf="@+id/ivTransferPicture"
+            app:layout_constraintTop_toBottomOf="@+id/tvTransferName"
+            tools:text="(11) 998 834 023" />
+
+        <TextView
+            android:id="@+id/tvTransferValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/smaller_margin"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/text_size_big"
+            app:layout_constraintStart_toEndOf="@+id/ivTransferPicture"
+            app:layout_constraintTop_toBottomOf="@+id/tvTransferPhone"
+            tools:text="R$ 120,00" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

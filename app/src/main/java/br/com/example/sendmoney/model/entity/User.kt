@@ -5,5 +5,6 @@ data class User(
     var name: String,
     var email: String,
     var token: String?,
-    var contactList: List<Contact>?
+    var contactList: List<Contact>?,
+    var transferList: List<Transfer>?
 )
