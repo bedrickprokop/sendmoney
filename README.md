@@ -2,11 +2,11 @@
 
 Aplicativo Android, desenvolvido em Kotlin, para enviar e visualizar transfências.
 
-## Arquitetura usada
+## Arquitetura
 
 MVVM - Model, View, ViewModel.
 
-## Componentes do jetpack usados
+## Componentes do jetpack
 
 - Android KTX
 - AppCompat
@@ -16,7 +16,7 @@ MVVM - Model, View, ViewModel.
 - ViewModel
 - Layout
 
-## Bibliotecas usadas
+## Bibliotecas
 
 - CardView
 - RecyclerView
