@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">SendMoney</string>
-    
+
     <!-- Home Activity -->
-    <string name="act_home_tv_user_name">Bedrick Prokop</string>
-    <string name="act_home_tv_user_email">bedrick.prokop@gmail.com</string>
+    <string name="act_home_tv_user_name">Current User</string>
+    <string name="act_home_tv_user_email">aaa.aaa@aaa.com</string>
     <string name="act_home_ib_send_money">Enviar dinheiro</string>
     <string name="act_home_ib_history">Histórico de envios</string>
     <string name="act_home_iv_user">Usuário</string>

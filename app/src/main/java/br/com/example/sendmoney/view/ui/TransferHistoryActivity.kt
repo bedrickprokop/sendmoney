@@ -2,11 +2,11 @@ package br.com.example.sendmoney.view.ui
 
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import br.com.example.sendmoney.R
+import br.com.example.sendmoney.SendMoneyConsts
 import br.com.example.sendmoney.databinding.ActTransferHistoryBinding
 import br.com.example.sendmoney.model.entity.Transfer
 import br.com.example.sendmoney.model.entity.User
@@ -14,7 +14,7 @@ import br.com.example.sendmoney.view.adapter.TransferHistoryAdapter
 import br.com.example.sendmoney.view.component.DividerItemDecoration
 import br.com.example.sendmoney.viewmodel.TransferHistoryViewModel
 
-class TransferHistoryActivity : AppCompatActivity() {
+class TransferHistoryActivity : BaseActivity() {
 
     private lateinit var bind: ActTransferHistoryBinding
     private lateinit var adapter: TransferHistoryAdapter
@@ -29,6 +29,10 @@ class TransferHistoryActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        showProgressDialog()
+
+        val token = intent.getStringExtra(SendMoneyConsts.EXTRA_TOKEN)
+
         //RecyclerView
         val dividerItemDecoration = DividerItemDecoration(this)
         adapter = TransferHistoryAdapter(this, null)
@@ -37,8 +41,7 @@ class TransferHistoryActivity : AppCompatActivity() {
         bind.rvTransferHistory.setHasFixedSize(true)
 
         val user = getUserSession()
-        //TODO passar token
-        bind.viewModel?.loadTransferHistoryObservable(user, "token")
+        bind.viewModel?.loadTransferHistoryObservable(user, token)
             ?.observe(this, loadTransferHistoryObservable())
     }
 
@@ -52,6 +55,7 @@ class TransferHistoryActivity : AppCompatActivity() {
     private fun loadTransferHistoryObservable(): Observer<List<Transfer>> {
         return Observer {
             adapter.setData(it)
+            hideProgressDialog()
         }
     }
 

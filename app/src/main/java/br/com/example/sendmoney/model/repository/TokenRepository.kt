@@ -1,5 +1,6 @@
 package br.com.example.sendmoney.model.repository
 
+import android.os.Handler
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import br.com.example.sendmoney.model.HttpApiGenerator
@@ -27,12 +28,15 @@ class TokenRepository private constructor(/*application: Application*/) {
         val data = MutableLiveData<String>()
         val call = tokenApi.generate(user)
         call.enqueue(object : Callback<String> {
+
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 data.postValue(response.body())
             }
 
             override fun onFailure(call: Call<String>, t: Throwable) {
-                data.postValue("teste")
+                Handler().postDelayed({
+                    data.postValue("teste")
+                }, 1000)
             }
         })
         return data

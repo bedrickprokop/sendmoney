@@ -1,5 +1,6 @@
 package br.com.example.sendmoney.model.repository
 
+import android.os.Handler
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import br.com.example.sendmoney.model.HttpApiGenerator
@@ -28,8 +29,6 @@ class TransferRepository {
 
     fun loadContacts(user: User, token: String): LiveData<List<Contact>> {
         val data = MutableLiveData<List<Contact>>()
-
-        //TODO mock
         val mutableListOf = mutableListOf(
             Contact(1, "Gollum", "(31) 90383-4001"),
             Contact(2, "Frodo Baggins", "(31) 99801-2942"),
@@ -61,7 +60,9 @@ class TransferRepository {
             }
 
             override fun onFailure(call: Call<Boolean>, t: Throwable) {
-                data.postValue(false)
+                Handler().postDelayed({
+                    data.postValue(false)
+                }, 3000)
             }
         })
         return data
@@ -70,7 +71,6 @@ class TransferRepository {
     fun loadTransferHistory(user: User, token: String): LiveData<List<Transfer>> {
         val data = MutableLiveData<List<Transfer>>()
         /*val call = transferApi.getTransfers(token)
-
         call.enqueue(object : Callback<List<Transfer>> {
 
             override fun onResponse(
@@ -82,7 +82,6 @@ class TransferRepository {
             override fun onFailure(call: Call<List<Transfer>>, t: Throwable) {
                 //TODO mock
             }
-
         })*/
 
         val mutableListOf = mutableListOf(
@@ -104,7 +103,5 @@ class TransferRepository {
         )
         data.value = mutableListOf
         return data
-
-
     }
 }
