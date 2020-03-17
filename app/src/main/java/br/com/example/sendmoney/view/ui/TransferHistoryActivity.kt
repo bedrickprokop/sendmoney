@@ -4,9 +4,8 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import br.com.example.sendmoney.R
-import br.com.example.sendmoney.SendMoneyConsts
 import br.com.example.sendmoney.databinding.ActTransferHistoryBinding
 import br.com.example.sendmoney.model.entity.Transfer
 import br.com.example.sendmoney.util.SharedUtil
@@ -22,7 +21,7 @@ class TransferHistoryActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bind = DataBindingUtil.setContentView(this, R.layout.act_transfer_history)
-        bind.viewModel = ViewModelProviders.of(this).get(TransferHistoryViewModel::class.java)
+        bind.viewModel = ViewModelProvider(this).get(TransferHistoryViewModel::class.java)
 
         //ActionBar
         setSupportActionBar(bind.tActionBar)

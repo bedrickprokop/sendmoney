@@ -7,7 +7,7 @@ import android.os.Handler
 import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import br.com.example.sendmoney.R
 import br.com.example.sendmoney.SendMoneyConsts
 import br.com.example.sendmoney.databinding.ActHomeBinding
@@ -29,7 +29,7 @@ class HomeActivity : BaseActivity() {
         )
 
         bind = DataBindingUtil.setContentView(this, R.layout.act_home)
-        bind.viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
+        bind.viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
         showProgressDialog()
 

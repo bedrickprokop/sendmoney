@@ -76,7 +76,7 @@ dependencies {
 
     // KOTLIN
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.core:core-ktx:1.2.0'
 
     // RETROFIT
     implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
