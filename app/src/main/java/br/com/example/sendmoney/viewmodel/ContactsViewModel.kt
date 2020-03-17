@@ -13,8 +13,8 @@ class ContactsViewModel(application: Application) : AndroidViewModel(application
     private val transferRepository = TransferRepository.getInstance()
     private val userRepository = UserRepository.getInstance()
 
-    fun loadContactListObservable(user: User, token: String): LiveData<List<Contact>> {
-        return userRepository.loadContacts(user, token)
+    fun loadContactListObservable(user: User): LiveData<List<Contact>> {
+        return userRepository.loadContacts(user)
     }
 
     fun sendMoney(contact: Contact, value: Double, token: String): LiveData<Boolean> {

@@ -43,9 +43,9 @@ class TransferRepository {
         return data
     }
 
-    fun loadTransferHistory(user: User, token: String): LiveData<List<Transfer>> {
+    fun loadTransferHistory(user: User): LiveData<List<Transfer>> {
         val data = MutableLiveData<List<Transfer>>()
-        val call = transferApi.getTransfers(token)
+        val call = transferApi.getTransfers(user.token)
 
         call.enqueue(object : Callback<List<Transfer>> {
             override fun onResponse(

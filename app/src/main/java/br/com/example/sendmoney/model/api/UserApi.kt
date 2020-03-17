@@ -8,5 +8,5 @@ import retrofit2.http.Path
 interface UserApi {
 
     @GET("user/contacts/{token}")
-    fun getContacts(@Path("token") token: String): Call<List<Contact>>
+    fun getContacts(@Path("token") token: String?): Call<List<Contact>>
 }

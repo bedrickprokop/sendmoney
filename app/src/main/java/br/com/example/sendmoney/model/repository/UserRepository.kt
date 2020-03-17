@@ -25,9 +25,9 @@ class UserRepository {
         }
     }
 
-    fun loadContacts(user: User, token: String): LiveData<List<Contact>> {
+    fun loadContacts(user: User): LiveData<List<Contact>> {
         val data = MutableLiveData<List<Contact>>()
-        val call = userApi.getContacts(token)
+        val call = userApi.getContacts(user.token)
 
         call.enqueue(object : Callback<List<Contact>> {
 

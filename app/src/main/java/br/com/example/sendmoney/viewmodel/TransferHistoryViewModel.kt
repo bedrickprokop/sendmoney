@@ -11,7 +11,7 @@ class TransferHistoryViewModel(application: Application) : AndroidViewModel(appl
 
     private val transferRepository = TransferRepository.getInstance()
 
-    fun loadTransferHistoryObservable(user: User, token: String): LiveData<List<Transfer>> {
-        return transferRepository.loadTransferHistory(user, token)
+    fun loadTransferHistoryObservable(user: User): LiveData<List<Transfer>> {
+        return transferRepository.loadTransferHistory(user)
     }
 }

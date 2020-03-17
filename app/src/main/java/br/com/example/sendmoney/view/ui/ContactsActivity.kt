@@ -11,7 +11,7 @@ import br.com.example.sendmoney.R
 import br.com.example.sendmoney.SendMoneyConsts
 import br.com.example.sendmoney.databinding.ActContactsBinding
 import br.com.example.sendmoney.model.entity.Contact
-import br.com.example.sendmoney.model.entity.User
+import br.com.example.sendmoney.util.SharedUtil
 import br.com.example.sendmoney.view.adapter.ContactsAdapter
 import br.com.example.sendmoney.view.component.DividerItemDecoration
 import br.com.example.sendmoney.viewmodel.ContactsViewModel
@@ -33,14 +33,14 @@ class ContactsActivity : BaseActivity() {
 
         showProgressDialog()
 
-        val token = intent.getStringExtra(SendMoneyConsts.EXTRA_TOKEN)
-
         //RecyclerView
         val dividerItemDecoration = DividerItemDecoration(this)
         adapter = ContactsAdapter(this, null) { contact ->
 
             val transferDialog = TransferDialog(this, contact) { value ->
                 showProgressDialog()
+
+                val token = SharedUtil.getUser(this).token
                 bind.viewModel?.sendMoney(contact, value, token)
                     ?.observe(this, sendMoneyObservable())
             }
@@ -50,8 +50,8 @@ class ContactsActivity : BaseActivity() {
         bind.rvContacts.addItemDecoration(dividerItemDecoration)
         bind.rvContacts.setHasFixedSize(true)
 
-        val user = getUserSession()
-        bind.viewModel?.loadContactListObservable(user, token)
+        val user = SharedUtil.getUser(this)
+        bind.viewModel?.loadContactListObservable(user)
             ?.observe(this, loadContactListObservable())
     }
 
@@ -81,20 +81,5 @@ class ContactsActivity : BaseActivity() {
             adapter.setData(it)
             hideProgressDialog()
         }
-    }
-
-    /**
-     * Apenas para simular que o usuário foi 'buscado' da 'sessão', ou seja, sharedpreferences, database, etc
-     */
-    private fun getUserSession(): User {
-        val user = User(
-            1,
-            getString(R.string.act_home_tv_user_name),
-            getString(R.string.act_home_tv_user_email),
-            null,
-            null,
-            null
-        )
-        return user
     }
 }

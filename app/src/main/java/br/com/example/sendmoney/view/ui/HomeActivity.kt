@@ -12,6 +12,7 @@ import br.com.example.sendmoney.R
 import br.com.example.sendmoney.SendMoneyConsts
 import br.com.example.sendmoney.databinding.ActHomeBinding
 import br.com.example.sendmoney.model.entity.User
+import br.com.example.sendmoney.util.SharedUtil
 import br.com.example.sendmoney.viewmodel.HomeViewModel
 import com.google.android.material.snackbar.Snackbar
 
@@ -33,19 +34,16 @@ class HomeActivity : BaseActivity() {
         showProgressDialog()
 
         bind.btSendMoney.setOnClickListener {
-            val intent = Intent(
-                this, ContactsActivity::class.java
-            ).putExtra(SendMoneyConsts.EXTRA_TOKEN, bind.viewModel?.currentUser?.token)
-            startActivityForResult(intent, SendMoneyConsts.REQUEST_CODE_CONTACTS)
+            startActivityForResult(
+                Intent(this, ContactsActivity::class.java),
+                SendMoneyConsts.REQUEST_CODE_CONTACTS
+            )
         }
         bind.btShowHistory.setOnClickListener {
-            val intent = Intent(
-                this, TransferHistoryActivity::class.java
-            ).putExtra(SendMoneyConsts.EXTRA_TOKEN, bind.viewModel?.currentUser?.token)
-            startActivity(intent)
+            startActivity(Intent(this, TransferHistoryActivity::class.java))
         }
 
-        user = getUserSession(intent)
+        user = SharedUtil.getUser(this)
         bind.viewModel?.currentUser = user
         bind.viewModel?.loadTokenObservable(user)
             ?.observe(this, loadTokenObservable())
@@ -66,7 +64,10 @@ class HomeActivity : BaseActivity() {
     private fun loadTokenObservable(): Observer<String> {
         return Observer {
             it.let {
+                //Adiciona o token ao usuário que está no sharedpreferences e no viewModel
+                SharedUtil.addString(this, SendMoneyConsts.KEY_USER_TOKEN, it)
                 bind.viewModel?.currentUser?.token = it
+
                 bind.tvUserName.text = bind.viewModel?.currentUser?.name
                 bind.tvUserEmail.text = bind.viewModel?.currentUser?.email
                 bind.btShowHistory.isEnabled = true
@@ -74,20 +75,5 @@ class HomeActivity : BaseActivity() {
             }
             hideProgressDialog()
         }
-    }
-
-    /**
-     * Apenas para simular que o usuário foi 'buscado' da 'sessão', ou seja, sharedpreferences, database, etc
-     */
-    private fun getUserSession(intent: Intent?): User {
-        val user = User(
-            1,
-            "Bedrick Prokop",
-            "bedrick.prokop@gmail.com",
-            null,
-            null,
-            null
-        )
-        return user
     }
 }

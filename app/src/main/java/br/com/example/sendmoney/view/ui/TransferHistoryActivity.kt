@@ -9,7 +9,7 @@ import br.com.example.sendmoney.R
 import br.com.example.sendmoney.SendMoneyConsts
 import br.com.example.sendmoney.databinding.ActTransferHistoryBinding
 import br.com.example.sendmoney.model.entity.Transfer
-import br.com.example.sendmoney.model.entity.User
+import br.com.example.sendmoney.util.SharedUtil
 import br.com.example.sendmoney.view.adapter.TransferHistoryAdapter
 import br.com.example.sendmoney.view.component.DividerItemDecoration
 import br.com.example.sendmoney.viewmodel.TransferHistoryViewModel
@@ -31,8 +31,6 @@ class TransferHistoryActivity : BaseActivity() {
 
         showProgressDialog()
 
-        val token = intent.getStringExtra(SendMoneyConsts.EXTRA_TOKEN)
-
         //RecyclerView
         val dividerItemDecoration = DividerItemDecoration(this)
         adapter = TransferHistoryAdapter(this, null)
@@ -40,8 +38,8 @@ class TransferHistoryActivity : BaseActivity() {
         bind.rvTransferHistory.addItemDecoration(dividerItemDecoration)
         bind.rvTransferHistory.setHasFixedSize(true)
 
-        val user = getUserSession()
-        bind.viewModel?.loadTransferHistoryObservable(user, token)
+        val user = SharedUtil.getUser(this)
+        bind.viewModel?.loadTransferHistoryObservable(user)
             ?.observe(this, loadTransferHistoryObservable())
     }
 
@@ -57,20 +55,5 @@ class TransferHistoryActivity : BaseActivity() {
             adapter.setData(it)
             hideProgressDialog()
         }
-    }
-
-    /**
-     * Apenas para simular que o usuário foi 'buscado' da 'sessão', ou seja, sharedpreferences, database, etc
-     */
-    private fun getUserSession(): User {
-        val user = User(
-            1,
-            getString(R.string.act_home_tv_user_name),
-            getString(R.string.act_home_tv_user_email),
-            null,
-            null,
-            null
-        )
-        return user
     }
 }
