@@ -7,13 +7,13 @@ import retrofit2.http.*
 interface TransferApi {
 
     @GET("transfer/{token}")
-    fun getTransfers(@Path("token") token: String): Call<List<Transfer>>
+    fun getTransfers(@Path("token") token: String?): Call<List<Transfer>>
 
     @FormUrlEncoded
     @POST("transfer/sendmoney")
     fun sendMoney(
-        @Field("clientId") clientId: Int,
-        @Field("value") value: Double,
-        @Field("token") token: String
+        @Field("clientId") clientId: Int?,
+        @Field("value") value: Double?,
+        @Field("token") token: String?
     ): Call<Boolean>
 }

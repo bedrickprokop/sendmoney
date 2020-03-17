@@ -9,7 +9,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class TokenRepository private constructor(/*application: Application*/) {
+class TokenRepository private constructor() {
 
     private var tokenApi: TokenApi = HttpApiGenerator<TokenApi>()
         .gen(TokenApi::class.java)
@@ -17,9 +17,9 @@ class TokenRepository private constructor(/*application: Application*/) {
     companion object {
         private var instance: TokenRepository? = null
 
-        fun getInstance(/*application: Application*/): TokenRepository {
+        fun getInstance(): TokenRepository {
             if (instance == null)
-                instance = TokenRepository(/*application*/)
+                instance = TokenRepository()
             return instance!!
         }
     }

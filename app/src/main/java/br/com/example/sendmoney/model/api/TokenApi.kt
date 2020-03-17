@@ -8,6 +8,6 @@ import retrofit2.http.POST
 interface TokenApi {
 
     @POST("token/generate")
-    fun generate(@Body user: User): Call<String>
+    fun generate(@Body user: User?): Call<String>
 
 }

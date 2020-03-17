@@ -14,7 +14,7 @@ interface SendMoneyConsts {
         val REQUEST_CODE_CONTACTS: Int = 100
         val RESULT_MESSAGE: String = "MESSAGE"
 
-
+        //SharedPreferences keys
         val KEY_USER_ID: String = "USER_ID"
         val KEY_USER_NAME: String = "USER_NAME"
         val KEY_USER_EMAIL: String = "USER_EMAIL"

@@ -37,12 +37,12 @@ class ContactsAdapter(
             listener(contact)
         }
 
-        holder.bind.tvContactName.text = StringUtil.truncate(contact.name, 20)
+        holder.bind.tvContactName.text = contact.name?.let { StringUtil.truncate(it, 20) }
         holder.bind.tvContactPhone.text = contact.phone
     }
 
     override fun getItemCount(): Int {
-        return if (mData.isNullOrEmpty()) 0 else mData!!.size
+        return mData?.size ?: 0
     }
 
     fun setData(contactList: List<Contact>) {

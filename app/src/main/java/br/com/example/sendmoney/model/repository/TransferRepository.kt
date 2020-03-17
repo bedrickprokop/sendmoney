@@ -26,9 +26,9 @@ class TransferRepository {
         }
     }
 
-    fun sendMoney(contact: Contact, value: Double, token: String): LiveData<Boolean> {
+    fun sendMoney(contact: Contact?, value: Double?, token: String?): LiveData<Boolean> {
         val data = MutableLiveData<Boolean>()
-        val call = transferApi.sendMoney(contact.id, value, token)
+        val call = transferApi.sendMoney(contact?.id, value, token)
 
         call.enqueue(object : Callback<Boolean> {
             override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
@@ -45,9 +45,9 @@ class TransferRepository {
 
     fun loadTransferHistory(user: User): LiveData<List<Transfer>> {
         val data = MutableLiveData<List<Transfer>>()
-        val call = transferApi.getTransfers(user.token)
+        val call = user.token?.let { transferApi.getTransfers(it) }
 
-        call.enqueue(object : Callback<List<Transfer>> {
+        call?.enqueue(object : Callback<List<Transfer>> {
             override fun onResponse(
                 call: Call<List<Transfer>>,
                 response: Response<List<Transfer>>

@@ -17,7 +17,7 @@ class ContactsViewModel(application: Application) : AndroidViewModel(application
         return userRepository.loadContacts(user)
     }
 
-    fun sendMoney(contact: Contact, value: Double, token: String): LiveData<Boolean> {
+    fun sendMoney(contact: Contact?, value: Double?, token: String?): LiveData<Boolean> {
         return transferRepository.sendMoney(contact, value, token)
     }
 }

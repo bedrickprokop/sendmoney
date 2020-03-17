@@ -27,16 +27,11 @@ class ProgressDialog(context: Activity) : LifecycleObserver {
     }
 
     fun showProgressDialog(activity: Activity) {
-        if (mAlertDialog == null) {
-            mAlertDialog = newInstance(activity)
-            mAlertDialog.show()
-        } else {
-            mAlertDialog.show()
-        }
+        mAlertDialog.show()
     }
 
     fun hideProgressDialog() {
-        if (mAlertDialog != null && mAlertDialog.isShowing)
+        if (mAlertDialog.isShowing)
             mAlertDialog.dismiss()
     }
 

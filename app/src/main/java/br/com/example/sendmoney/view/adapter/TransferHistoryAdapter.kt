@@ -27,17 +27,18 @@ class TransferHistoryAdapter(
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val transfer = mData!![position]
+        val transfer = mData?.get(position)
 
         //TODO Usar framework de imagem - glide, etc
         //holder.bind.ivTransferPicture
-        holder.bind.tvTransferName.text = StringUtil.truncate(transfer.name, 20)
-        holder.bind.tvTransferPhone.text = transfer.phone
-        holder.bind.tvTransferValue.text = StringUtil.convertToMoneyForm(transfer.value)
+        holder.bind.tvTransferName.text = transfer?.name?.let { StringUtil.truncate(it, 20) }
+        holder.bind.tvTransferPhone.text = transfer?.phone
+        holder.bind.tvTransferValue.text =
+            transfer?.value?.let { StringUtil.convertToMoneyForm(it) }
     }
 
     override fun getItemCount(): Int {
-        return if (mData.isNullOrEmpty()) 0 else mData!!.size
+        return mData?.size ?: 0
     }
 
     fun setData(transferList: List<Transfer>) {

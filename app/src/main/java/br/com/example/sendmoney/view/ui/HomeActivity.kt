@@ -18,7 +18,7 @@ import com.google.android.material.snackbar.Snackbar
 
 class HomeActivity : BaseActivity() {
 
-    private lateinit var bind: ActHomeBinding;
+    private lateinit var bind: ActHomeBinding
     private lateinit var user: User
 
     override fun onCreate(savedInstanceState: Bundle?) {
