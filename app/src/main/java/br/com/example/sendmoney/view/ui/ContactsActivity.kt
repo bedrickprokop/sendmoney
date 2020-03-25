@@ -11,6 +11,7 @@ import br.com.example.sendmoney.R
 import br.com.example.sendmoney.SendMoneyConsts
 import br.com.example.sendmoney.databinding.ActContactsBinding
 import br.com.example.sendmoney.model.entity.Contact
+import br.com.example.sendmoney.model.entity.Transfer
 import br.com.example.sendmoney.util.SharedUtil
 import br.com.example.sendmoney.view.adapter.ContactsAdapter
 import br.com.example.sendmoney.view.component.DividerItemDecoration
@@ -37,14 +38,20 @@ class ContactsActivity : BaseActivity() {
         val dividerItemDecoration = DividerItemDecoration(this)
         adapter = ContactsAdapter(this, null) { contact ->
 
-            val transferDialog = TransferDialog(this, contact) { value ->
+            val fragmentTransaction = supportFragmentManager.beginTransaction()
+            val previous = supportFragmentManager.findFragmentByTag("dialog")
+            if (previous != null)
+                fragmentTransaction.remove(previous)
+            fragmentTransaction.addToBackStack(null)
+
+            val transferDialog = TransferDialog(contact) { value ->
                 showProgressDialog()
 
                 val token = SharedUtil.getUser(this).token
                 bind.viewModel?.sendMoney(contact, value, token)
                     ?.observe(this, sendMoneyObservable())
             }
-            transferDialog.show()
+            transferDialog.show(fragmentTransaction, "dialog")
         }
         bind.rvContacts.adapter = adapter
         bind.rvContacts.addItemDecoration(dividerItemDecoration)
