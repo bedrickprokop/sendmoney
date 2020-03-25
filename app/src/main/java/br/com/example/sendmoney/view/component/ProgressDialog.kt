@@ -26,7 +26,7 @@ class ProgressDialog(context: Activity) : LifecycleObserver {
         }
     }
 
-    fun showProgressDialog(activity: Activity) {
+    fun showProgressDialog() {
         mAlertDialog.show()
     }
 

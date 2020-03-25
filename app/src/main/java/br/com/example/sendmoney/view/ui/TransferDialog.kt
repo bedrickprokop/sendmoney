@@ -46,11 +46,11 @@ class TransferDialog(
         }
         bind.btTransferMoney.setOnClickListener {
             val strValue = bind.etTransferValue.text.toString()
-            if (bind.viewModel.isValidValue(strValue)) {
+            if (bind.viewModel!!.isValidValue(strValue)) {
                 dismiss()
                 listener(strValue.toDouble())
             } else {
-                //TODO error treatment
+                //TODO notify user for validation error
             }
         }
         isCancelable = false

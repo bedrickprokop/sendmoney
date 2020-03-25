@@ -18,7 +18,7 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     fun showProgressDialog() {
-        mProgressDialog.showProgressDialog(this)
+        mProgressDialog.showProgressDialog()
     }
 
     fun hideProgressDialog() {
