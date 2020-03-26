@@ -6,12 +6,8 @@ import androidx.lifecycle.AndroidViewModel
 
 class TransferViewModel(application: Application) : AndroidViewModel(application) {
 
-    fun isValidValue(@NonNull value: String): Boolean {
-        if (value.isNotEmpty() && value.isNotBlank()) {
-            val doubleValue = value.toDouble()
-            return doubleValue > 0.0 && doubleValue < 99999999
-        }
-        return false
+    fun isValidValue(@NonNull value: Double): Boolean {
+        return value > 0.0
     }
 
 }

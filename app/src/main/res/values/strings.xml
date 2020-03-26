@@ -15,7 +15,6 @@
     <!-- Transfer Dialog -->
     <string name="dialog_transfer_ib_close">Close</string>
     <string name="dialog_transfer_tv_value_label">Amount to be sent:</string>
-    <string name="dialog_transfer_et_transfer_value_hint">U$ 0,00</string>
     <string name="dialog_transfer_bt_transfer_money">Send</string>
     <string name="dialog_transfer_tv_contact_phone_description"><![CDATA[Mobile number is %1$s]]></string>
 

@@ -28,6 +28,10 @@ interface SendMoneyConsts {
         val ENUS: Locale = Locale("en", "US")
 
         //String
+        val PERIOD: String = "."
+        val COMMA: String = ","
+        val EMPTY: String = ""
+        val SINGLE_SPACE: String = " "
         val ELLIPSIS: String = "..."
     }
 }

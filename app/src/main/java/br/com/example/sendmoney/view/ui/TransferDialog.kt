@@ -13,8 +13,11 @@ import androidx.lifecycle.ViewModelProvider
 import br.com.example.sendmoney.R
 import br.com.example.sendmoney.databinding.DialogTransferBinding
 import br.com.example.sendmoney.model.entity.Contact
+import br.com.example.sendmoney.util.MaskUtil
+import br.com.example.sendmoney.util.MoneyUtil
 import br.com.example.sendmoney.viewmodel.TransferViewModel
 import java.util.*
+
 
 class TransferDialog(
     private val contact: Contact,
@@ -33,26 +36,28 @@ class TransferDialog(
         Objects.requireNonNull<Window>(dialog?.window)
             .setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-        var phoneContentDesctiption =
-            getString(R.string.dialog_transfer_tv_contact_phone_description)
-        phoneContentDesctiption = String.format(phoneContentDesctiption, contact.phone)
+        var phoneDescription = getString(R.string.dialog_transfer_tv_contact_phone_description)
+        phoneDescription = String.format(phoneDescription, contact.phone)
 
         bind = DataBindingUtil.inflate(
             inflater, R.layout.dialog_transfer, container, false
         )
         bind.viewModel = ViewModelProvider(this).get(TransferViewModel::class.java)
-        bind.tvContactName.text = contact.name
-        bind.tvContactPhone.text = contact.phone
-        bind.tvContactPhone.contentDescription = phoneContentDesctiption
         bind.ibClose.setOnClickListener {
             dismiss()
         }
+        bind.tvContactName.text = contact.name
+        bind.tvContactPhone.text = contact.phone
+        bind.tvContactPhone.contentDescription = phoneDescription
+        bind.etTransferValue.hint = MoneyUtil.format(0.0)
+        bind.etTransferValue.addTextChangedListener(MaskUtil.genMoneyWatcher(bind.etTransferValue))
         bind.btTransferMoney.setOnClickListener {
-            val strValue = bind.etTransferValue.text.toString()
-            if (bind.viewModel!!.isValidValue(strValue)) {
+            val doubleValue = MoneyUtil.parse(bind.etTransferValue.text.toString())
+            if (bind.viewModel!!.isValidValue(doubleValue)) {
                 dismiss()
-                listener(strValue.toDouble())
+                listener(doubleValue)
             } else {
+                //TODO habilitar o botão somente se os valores digitados forem válidos
                 //TODO notify user for validation error
             }
         }

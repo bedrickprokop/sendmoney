@@ -99,7 +99,7 @@
                     android:layout_marginEnd="@dimen/medium_margin"
                     android:background="@drawable/bg_rounded_edit_text"
                     android:gravity="center_horizontal|center_vertical"
-                    android:hint="@string/dialog_transfer_et_transfer_value_hint"
+                    tools:hint="$ 0,00"
                     android:importantForAutofill="no"
                     android:inputType="numberDecimal"
                     android:paddingTop="@dimen/smaller_padding"
