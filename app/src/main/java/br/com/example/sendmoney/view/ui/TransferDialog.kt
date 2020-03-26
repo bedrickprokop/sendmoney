@@ -3,6 +3,8 @@ package br.com.example.sendmoney.view.ui
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,13 +13,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 import br.com.example.sendmoney.R
+import br.com.example.sendmoney.SendMoneyConsts
 import br.com.example.sendmoney.databinding.DialogTransferBinding
 import br.com.example.sendmoney.model.entity.Contact
-import br.com.example.sendmoney.util.MaskUtil
 import br.com.example.sendmoney.util.MoneyUtil
 import br.com.example.sendmoney.viewmodel.TransferViewModel
 import java.util.*
-
 
 class TransferDialog(
     private val contact: Contact,
@@ -26,10 +27,10 @@ class TransferDialog(
     DialogFragment() {
 
     private lateinit var bind: DialogTransferBinding
+    private lateinit var mTextWatcher: TextWatcher
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
@@ -43,6 +44,40 @@ class TransferDialog(
             inflater, R.layout.dialog_transfer, container, false
         )
         bind.viewModel = ViewModelProvider(this).get(TransferViewModel::class.java)
+
+        mTextWatcher = object : TextWatcher {
+            private val MAX_LENGTH: Int = 11
+            private var current: String = SendMoneyConsts.EMPTY
+
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+            }
+
+            override fun afterTextChanged(s: Editable) {
+            }
+
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if (s.toString() != current) {
+                    bind.etTransferValue.removeTextChangedListener(this)
+
+                    val currencySymbol = MoneyUtil.getCurrencySymbol()
+                    val regex =
+                        "[$currencySymbol${SendMoneyConsts.COMMA}${SendMoneyConsts.PERIOD}]".toRegex()
+                    var strClean = s.toString().replace(regex, SendMoneyConsts.EMPTY)
+                    if (strClean.length > MAX_LENGTH)
+                        strClean = strClean.substring(0, MAX_LENGTH)
+                    val parsed = strClean.toDouble()
+                    val enableTransferButton = parsed > 0.0
+                    val strFormatted = MoneyUtil.format(parsed / 100)
+                    current = strFormatted
+
+                    bind.etTransferValue.setText(current)
+                    bind.etTransferValue.setSelection(current.length)
+                    bind.etTransferValue.addTextChangedListener(this)
+                    bind.btTransferMoney.isEnabled = enableTransferButton
+                }
+            }
+        }
+
         bind.ibClose.setOnClickListener {
             dismiss()
         }
@@ -50,19 +85,14 @@ class TransferDialog(
         bind.tvContactPhone.text = contact.phone
         bind.tvContactPhone.contentDescription = phoneDescription
         bind.etTransferValue.hint = MoneyUtil.format(0.0)
-        bind.etTransferValue.addTextChangedListener(MaskUtil.genMoneyWatcher(bind.etTransferValue))
+        bind.etTransferValue.addTextChangedListener(mTextWatcher)
+        bind.btTransferMoney.isEnabled = false
         bind.btTransferMoney.setOnClickListener {
             val doubleValue = MoneyUtil.parse(bind.etTransferValue.text.toString())
-            if (bind.viewModel!!.isValidValue(doubleValue)) {
-                dismiss()
-                listener(doubleValue)
-            } else {
-                //TODO habilitar o botão somente se os valores digitados forem válidos
-                //TODO notify user for validation error
-            }
+            dismiss()
+            listener(doubleValue)
         }
         isCancelable = false
-
         return bind.root
     }
 }

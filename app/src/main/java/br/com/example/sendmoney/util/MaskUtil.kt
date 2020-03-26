@@ -5,6 +5,7 @@ import android.text.TextWatcher
 import android.widget.EditText
 import br.com.example.sendmoney.SendMoneyConsts
 
+//TODO estudar viabilidade de manter como um utilitário
 class MaskUtil {
 
     companion object {
@@ -15,7 +16,12 @@ class MaskUtil {
                 private val MAX_LENGTH: Int = 11
                 private var current: String = SendMoneyConsts.EMPTY
 
-                override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+                override fun beforeTextChanged(
+                    s: CharSequence,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
                 }
 
                 override fun afterTextChanged(s: Editable) {
@@ -26,10 +32,11 @@ class MaskUtil {
                         etValue.removeTextChangedListener(this)
 
                         val currencySymbol = MoneyUtil.getCurrencySymbol()
-                        val regex = "[$currencySymbol${SendMoneyConsts.COMMA}${SendMoneyConsts.PERIOD}]".toRegex()
+                        val regex =
+                            "[$currencySymbol${SendMoneyConsts.COMMA}${SendMoneyConsts.PERIOD}]".toRegex()
 
                         var strClean = s.toString().replace(regex, SendMoneyConsts.EMPTY)
-                        if(strClean.length > MAX_LENGTH)
+                        if (strClean.length > MAX_LENGTH)
                             strClean = strClean.substring(0, MAX_LENGTH)
 
                         val parsed = strClean.toDouble()

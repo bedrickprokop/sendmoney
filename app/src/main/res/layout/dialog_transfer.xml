@@ -99,7 +99,6 @@
                     android:layout_marginEnd="@dimen/medium_margin"
                     android:background="@drawable/bg_rounded_edit_text"
                     android:gravity="center_horizontal|center_vertical"
-                    tools:hint="$ 0,00"
                     android:importantForAutofill="no"
                     android:inputType="numberDecimal"
                     android:paddingTop="@dimen/smaller_padding"
@@ -110,7 +109,8 @@
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvValueLabel" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvValueLabel"
+                    tools:hint="$ 0,00" />
 
                 <Button
                     android:id="@+id/btTransferMoney"
