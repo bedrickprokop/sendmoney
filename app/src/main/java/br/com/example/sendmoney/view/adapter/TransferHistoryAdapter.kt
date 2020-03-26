@@ -31,8 +31,14 @@ class TransferHistoryAdapter(
 
         //TODO Usar framework de imagem - glide, etc
         //holder.bind.ivTransferPicture
+
+        var phoneContentDescription =
+            mContext.getString(R.string.item_transfer_history_tv_transfer_phone_description)
+        phoneContentDescription = String.format(phoneContentDescription, transfer?.phone)
+
         holder.bind.tvTransferName.text = transfer?.name?.let { StringUtil.truncate(it, 20) }
         holder.bind.tvTransferPhone.text = transfer?.phone
+        holder.bind.tvTransferPhone.contentDescription = phoneContentDescription
         holder.bind.tvTransferValue.text =
             transfer?.value?.let { StringUtil.convertToMoneyForm(it) }
     }

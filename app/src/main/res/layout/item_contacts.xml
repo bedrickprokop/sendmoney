@@ -19,7 +19,7 @@
             android:layout_width="@dimen/item_contacts_iv_contact"
             android:layout_height="@dimen/item_contacts_iv_contact"
             android:background="@drawable/bg_circular_image_view"
-            android:contentDescription="@string/item_contacts_iv_contact"
+            android:contentDescription="@null"
             android:padding="10dp"
             android:src="@drawable/ic_avatar"
             app:layout_constraintBottom_toBottomOf="parent"

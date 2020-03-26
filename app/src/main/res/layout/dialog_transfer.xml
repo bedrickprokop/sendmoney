@@ -45,7 +45,7 @@
                     android:layout_width="@dimen/item_contacts_iv_contact"
                     android:layout_height="@dimen/item_contacts_iv_contact"
                     android:background="@drawable/bg_circular_image_view"
-                    android:contentDescription="@string/item_contacts_iv_contact"
+                    android:contentDescription="@null"
                     android:padding="10dp"
                     android:src="@drawable/ic_avatar"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -88,7 +88,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvContactPhone"
-                    tools:text="Valor a enviar:" />
+                    tools:text="Amount to be sent:" />
 
                 <EditText
                     android:id="@+id/etTransferValue"
@@ -121,6 +121,7 @@
                     android:layout_marginEnd="@dimen/medium_margin"
                     android:layout_marginBottom="@dimen/medium_margin"
                     android:background="@drawable/bg_button_selector"
+                    android:contentDescription="@string/dialog_transfer_bt_transfer_money"
                     android:text="@string/dialog_transfer_bt_transfer_money"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/text_size_biggest"

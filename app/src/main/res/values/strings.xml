@@ -4,25 +4,26 @@
     <!-- Home Activity -->
     <string name="act_home_tv_user_name">Current User</string>
     <string name="act_home_tv_user_email">aaa.aaa@aaa.com</string>
-    <string name="act_home_ib_send_money">Enviar dinheiro</string>
-    <string name="act_home_ib_history">Histórico de envios</string>
-    <string name="act_home_iv_user">Usuário</string>
+    <string name="act_home_ib_send_money">Send money</string>
+    <string name="act_home_ib_history">History</string>
+    <string name="act_home_iv_user">User</string>
 
     <!-- Contacts Activity -->
-    <string name="act_contacts_ab_title">ENVIAR DINHEIRO</string>
-    <string name="item_contacts_iv_contact">Imagem do contato</string>
+    <string name="act_contacts_ab_title">SEND MONEY</string>
+    <string name="item_contacts_tv_contact_phone_description"><![CDATA[Mobile number is %1$s]]></string>
 
     <!-- Transfer Dialog -->
-    <string name="dialog_transfer_ib_close">Fechar</string>
-    <string name="dialog_transfer_tv_value_label">Valor a enviar:</string>
-    <string name="dialog_transfer_et_transfer_value_hint">R$ 0,00</string>
-    <string name="dialog_transfer_bt_transfer_money">Enviar</string>
+    <string name="dialog_transfer_ib_close">Close</string>
+    <string name="dialog_transfer_tv_value_label">Amount to be sent:</string>
+    <string name="dialog_transfer_et_transfer_value_hint">U$ 0,00</string>
+    <string name="dialog_transfer_bt_transfer_money">Send</string>
+    <string name="dialog_transfer_tv_contact_phone_description"><![CDATA[Mobile number is %1$s]]></string>
 
     <!-- TransferHistory Activity -->
-    <string name="act_history_ab_title">HISTÓRICO DE ENVIOS</string>
-    <string name="item_transfer_history_iv_transfer">Imagem da transferência</string>
+    <string name="act_transfer_history_ab_title">HISTORY</string>
+    <string name="item_transfer_history_tv_transfer_phone_description"><![CDATA[Mobile number is %1$s]]></string>
 
 
-    <string name="result_message_send_money_success">Valor transferido com sucesso!</string>
-    <string name="result_message_send_money_error">Erro ao realizar transfêrencia!</string>
+    <string name="result_message_send_money_success">Amount transferred successfully!</string>
+    <string name="result_message_send_money_error">Error while performing transfer!</string>
 </resources>

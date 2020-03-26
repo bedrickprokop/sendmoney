@@ -33,14 +33,17 @@ class TransferDialog(
         Objects.requireNonNull<Window>(dialog?.window)
             .setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
+        var phoneContentDesctiption =
+            getString(R.string.dialog_transfer_tv_contact_phone_description)
+        phoneContentDesctiption = String.format(phoneContentDesctiption, contact.phone)
+
         bind = DataBindingUtil.inflate(
             inflater, R.layout.dialog_transfer, container, false
         )
-
         bind.viewModel = ViewModelProvider(this).get(TransferViewModel::class.java)
-
         bind.tvContactName.text = contact.name
         bind.tvContactPhone.text = contact.phone
+        bind.tvContactPhone.contentDescription = phoneContentDesctiption
         bind.ibClose.setOnClickListener {
             dismiss()
         }

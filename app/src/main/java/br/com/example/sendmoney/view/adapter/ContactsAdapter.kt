@@ -37,8 +37,12 @@ class ContactsAdapter(
             listener(contact)
         }
 
+        var phoneContentDesctiption = mContext.getString(R.string.item_contacts_tv_contact_phone_description)
+        phoneContentDesctiption = String.format(phoneContentDesctiption, contact.phone)
+
         holder.bind.tvContactName.text = contact.name?.let { StringUtil.truncate(it, 20) }
         holder.bind.tvContactPhone.text = contact.phone
+        holder.bind.tvContactPhone.contentDescription = phoneContentDesctiption
     }
 
     override fun getItemCount(): Int {
