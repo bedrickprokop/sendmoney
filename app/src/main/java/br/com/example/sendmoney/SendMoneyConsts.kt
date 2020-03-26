@@ -1,9 +1,12 @@
 package br.com.example.sendmoney
 
+import java.util.*
+
 interface SendMoneyConsts {
 
     //TODO organizar constantes
     companion object {
+
         //Config
         val BASE_URL: String = "http://localhost:8080/sendmoney/"
 
@@ -19,5 +22,12 @@ interface SendMoneyConsts {
         val KEY_USER_NAME: String = "USER_NAME"
         val KEY_USER_EMAIL: String = "USER_EMAIL"
         val KEY_USER_TOKEN: String = "USER_TOKEN"
+
+        //Money
+        val PTBR: Locale = Locale("pt", "BR")
+        val ENUS: Locale = Locale("en", "US")
+
+        //String
+        val ELLIPSIS: String = "..."
     }
 }

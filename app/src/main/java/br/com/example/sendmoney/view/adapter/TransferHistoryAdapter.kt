@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.example.sendmoney.R
 import br.com.example.sendmoney.databinding.ItemTransferHistoryBinding
 import br.com.example.sendmoney.model.entity.Transfer
+import br.com.example.sendmoney.util.MoneyUtil
 import br.com.example.sendmoney.util.StringUtil
 
 class TransferHistoryAdapter(
@@ -39,8 +40,7 @@ class TransferHistoryAdapter(
         holder.bind.tvTransferName.text = transfer?.name?.let { StringUtil.truncate(it, 20) }
         holder.bind.tvTransferPhone.text = transfer?.phone
         holder.bind.tvTransferPhone.contentDescription = phoneContentDescription
-        holder.bind.tvTransferValue.text =
-            transfer?.value?.let { StringUtil.convertToMoneyForm(it) }
+        holder.bind.tvTransferValue.text = transfer?.value?.let { MoneyUtil.format(it.toDouble()) }
     }
 
     override fun getItemCount(): Int {

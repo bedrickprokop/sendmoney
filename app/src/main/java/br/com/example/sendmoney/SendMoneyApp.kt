@@ -13,7 +13,7 @@ class SendMoneyApp : Application() {
         //no shared preferences
         SharedUtil.addUser(
             this, User(
-                1, "Bedrick", "bedrick.prokop@gmail.com",
+                1, "Bedrick Prokop", "bedrick.prokop@gmail.com",
                 null, null, null
             )
         )
