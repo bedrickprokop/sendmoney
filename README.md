@@ -29,7 +29,7 @@ MVVM - Model, View, ViewModel.
 - Possui descrições em componentes visuais que são relevantes e feedbacks(TextToSpeech) para resultados
 de ações quando o usuário utilizar-se do Talkback(aplicativo da Google) para navegação no mesmo.
 
-## Observações:
+## Observações
 
 - O aplicativo funciona somente na versão mock(buildVariant mockDebug), pois nesta foi criado um
 Interceptor(MockClient.kt) que mapeia todos os endpoints e retorna para cada um deles o seu json.
