@@ -1,6 +1,6 @@
 # SendMoneyApp
 
-Aplicativo Android, desenvolvido em Kotlin, para enviar e visualizar transfências.
+Aplicativo Android, desenvolvido em Kotlin, para testes.
 
 ## Arquitetura
 
