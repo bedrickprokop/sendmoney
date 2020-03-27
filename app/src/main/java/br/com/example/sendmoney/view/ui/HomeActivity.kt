@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.speech.tts.TextToSpeech
 import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -20,6 +21,7 @@ class HomeActivity : BaseActivity() {
 
     private lateinit var bind: ActHomeBinding
     private lateinit var user: User
+    private lateinit var textToSpeech: TextToSpeech
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,10 +45,14 @@ class HomeActivity : BaseActivity() {
             startActivity(Intent(this, TransferHistoryActivity::class.java))
         }
 
+        textToSpeech = TextToSpeech(this, TextToSpeech.OnInitListener {
+            if (it == TextToSpeech.SUCCESS)
+                textToSpeech.language = SendMoneyConsts.ENUS
+        })
+
         user = SharedUtil.getUser(this)
         bind.viewModel?.currentUser = user
-        bind.viewModel?.loadTokenObservable(user)
-            ?.observe(this, loadTokenObservable())
+        bind.viewModel?.loadTokenObservable(user)?.observe(this, loadTokenObservable())
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -56,6 +62,7 @@ class HomeActivity : BaseActivity() {
                 val resultMessage = data?.getCharSequenceExtra(SendMoneyConsts.RESULT_MESSAGE)
                 Handler().postDelayed({
                     Snackbar.make(bind.clContainer, resultMessage!!, Snackbar.LENGTH_LONG).show()
+                    textToSpeech.speak(resultMessage, TextToSpeech.QUEUE_ADD, null, "1")
                 }, 500)
             }
         }
@@ -75,5 +82,11 @@ class HomeActivity : BaseActivity() {
             }
             hideProgressDialog()
         }
+    }
+
+    override fun onPause() {
+        textToSpeech.stop()
+        textToSpeech.shutdown()
+        super.onPause()
     }
 }
