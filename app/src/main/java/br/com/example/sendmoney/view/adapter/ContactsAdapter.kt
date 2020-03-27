@@ -54,7 +54,7 @@ class ContactsAdapter(
         notifyItemRangeInserted(0, contactList.size)
     }
 
-    inner class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    inner class ItemViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         var bind: ItemContactsBinding = DataBindingUtil.bind(view)!!
     }
 }

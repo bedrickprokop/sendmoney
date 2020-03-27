@@ -52,7 +52,7 @@ class TransferHistoryAdapter(
         notifyItemRangeInserted(0, transferList.size)
     }
 
-    inner class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    inner class ItemViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         var bind: ItemTransferHistoryBinding = DataBindingUtil.bind(view)!!
     }
 }

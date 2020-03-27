@@ -8,10 +8,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import br.com.example.sendmoney.R
-import br.com.example.sendmoney.SendMoneyConsts
+import br.com.example.sendmoney.RESULT_MESSAGE
 import br.com.example.sendmoney.databinding.ActContactsBinding
 import br.com.example.sendmoney.model.entity.Contact
-import br.com.example.sendmoney.model.entity.Transfer
 import br.com.example.sendmoney.util.SharedUtil
 import br.com.example.sendmoney.view.adapter.ContactsAdapter
 import br.com.example.sendmoney.view.component.DividerItemDecoration
@@ -65,10 +64,7 @@ class ContactsActivity : BaseActivity() {
     private fun sendMoneyObservable(): Observer<in Boolean> {
         return Observer {
             val intent = Intent()
-            intent.putExtra(
-                SendMoneyConsts.RESULT_MESSAGE,
-                getString(R.string.result_message_send_money_success)
-            )
+            intent.putExtra(RESULT_MESSAGE, getString(R.string.result_message_send_money_success))
             setResult(Activity.RESULT_OK, intent)
 
             hideProgressDialog()

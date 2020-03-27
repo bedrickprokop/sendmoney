@@ -1,6 +1,6 @@
 package br.com.example.sendmoney.model
 
-import br.com.example.sendmoney.SendMoneyConsts
+import br.com.example.sendmoney.BASE_URL
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -13,7 +13,7 @@ class HttpApiGenerator<T> {
         builder.addInterceptor(MockClient())
 
         val retrofit = Retrofit.Builder()
-            .baseUrl(SendMoneyConsts.BASE_URL)
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(builder.build())
             .build()

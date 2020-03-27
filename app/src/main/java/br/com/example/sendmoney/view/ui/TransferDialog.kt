@@ -12,8 +12,10 @@ import android.view.Window
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
+import br.com.example.sendmoney.COMMA
+import br.com.example.sendmoney.EMPTY
+import br.com.example.sendmoney.PERIOD
 import br.com.example.sendmoney.R
-import br.com.example.sendmoney.SendMoneyConsts
 import br.com.example.sendmoney.databinding.DialogTransferBinding
 import br.com.example.sendmoney.model.entity.Contact
 import br.com.example.sendmoney.util.MoneyUtil
@@ -47,7 +49,7 @@ class TransferDialog(
 
         mTextWatcher = object : TextWatcher {
             private val MAX_LENGTH: Int = 11
-            private var current: String = SendMoneyConsts.EMPTY
+            private var current: String = EMPTY
 
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
             }
@@ -60,9 +62,8 @@ class TransferDialog(
                     bind.etTransferValue.removeTextChangedListener(this)
 
                     val currencySymbol = MoneyUtil.getCurrencySymbol()
-                    val regex =
-                        "[$currencySymbol${SendMoneyConsts.COMMA}${SendMoneyConsts.PERIOD}]".toRegex()
-                    var strClean = s.toString().replace(regex, SendMoneyConsts.EMPTY)
+                    val regex = "[$currencySymbol${COMMA}${PERIOD}]".toRegex()
+                    var strClean = s.toString().replace(regex, EMPTY)
                     if (strClean.length > MAX_LENGTH)
                         strClean = strClean.substring(0, MAX_LENGTH)
                     val parsed = strClean.toDouble()

@@ -1,7 +1,7 @@
 package br.com.example.sendmoney.util
 
 import android.content.Context
-import br.com.example.sendmoney.SendMoneyConsts
+import br.com.example.sendmoney.*
 import br.com.example.sendmoney.model.entity.User
 
 class SharedUtil {
@@ -14,18 +14,18 @@ class SharedUtil {
 
 
         fun addUser(context: Context, user: User) {
-            user.id?.let { addInt(context, SendMoneyConsts.KEY_USER_ID, it) }
-            user.name?.let { addString(context, SendMoneyConsts.KEY_USER_NAME, it) }
-            user.email?.let { addString(context, SendMoneyConsts.KEY_USER_EMAIL, it) }
-            user.token?.let { addString(context, SendMoneyConsts.KEY_USER_TOKEN, it) }
+            user.id?.let { addInt(context, KEY_USER_ID, it) }
+            user.name?.let { addString(context, KEY_USER_NAME, it) }
+            user.email?.let { addString(context, KEY_USER_EMAIL, it) }
+            user.token?.let { addString(context, KEY_USER_TOKEN, it) }
         }
 
         fun getUser(context: Context): User {
             return User(
-                getInt(context, SendMoneyConsts.KEY_USER_ID),
-                getString(context, SendMoneyConsts.KEY_USER_NAME),
-                getString(context, SendMoneyConsts.KEY_USER_EMAIL),
-                getString(context, SendMoneyConsts.KEY_USER_TOKEN),
+                getInt(context, KEY_USER_ID),
+                getString(context, KEY_USER_NAME),
+                getString(context, KEY_USER_EMAIL),
+                getString(context, KEY_USER_TOKEN),
                 null,
                 null
             )

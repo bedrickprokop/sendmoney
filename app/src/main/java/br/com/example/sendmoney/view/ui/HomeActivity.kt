@@ -9,8 +9,7 @@ import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import br.com.example.sendmoney.R
-import br.com.example.sendmoney.SendMoneyConsts
+import br.com.example.sendmoney.*
 import br.com.example.sendmoney.databinding.ActHomeBinding
 import br.com.example.sendmoney.model.entity.User
 import br.com.example.sendmoney.util.SharedUtil
@@ -38,7 +37,7 @@ class HomeActivity : BaseActivity() {
         bind.btSendMoney.setOnClickListener {
             startActivityForResult(
                 Intent(this, ContactsActivity::class.java),
-                SendMoneyConsts.REQUEST_CODE_CONTACTS
+                REQUEST_CODE_CONTACTS
             )
         }
         bind.btShowHistory.setOnClickListener {
@@ -47,7 +46,7 @@ class HomeActivity : BaseActivity() {
 
         textToSpeech = TextToSpeech(this, TextToSpeech.OnInitListener {
             if (it == TextToSpeech.SUCCESS)
-                textToSpeech.language = SendMoneyConsts.ENUS
+                textToSpeech.language = ENUS
         })
 
         user = SharedUtil.getUser(this)
@@ -58,8 +57,8 @@ class HomeActivity : BaseActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == SendMoneyConsts.REQUEST_CODE_CONTACTS) {
-                val resultMessage = data?.getCharSequenceExtra(SendMoneyConsts.RESULT_MESSAGE)
+            if (requestCode == REQUEST_CODE_CONTACTS) {
+                val resultMessage = data?.getCharSequenceExtra(RESULT_MESSAGE)
                 Handler().postDelayed({
                     Snackbar.make(bind.clContainer, resultMessage!!, Snackbar.LENGTH_LONG).show()
                     textToSpeech.speak(resultMessage, TextToSpeech.QUEUE_ADD, null, "1")
@@ -72,7 +71,7 @@ class HomeActivity : BaseActivity() {
         return Observer {
             it.let {
                 //Adiciona o token ao usuário que está no sharedpreferences e no viewModel
-                SharedUtil.addString(this, SendMoneyConsts.KEY_USER_TOKEN, it)
+                SharedUtil.addString(this, KEY_USER_TOKEN, it)
                 bind.viewModel?.currentUser?.token = it
 
                 bind.tvUserName.text = bind.viewModel?.currentUser?.name
