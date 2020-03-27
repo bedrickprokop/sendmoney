@@ -18,7 +18,7 @@
             android:layout_width="@dimen/item_transfer_history_iv_transfer"
             android:layout_height="@dimen/item_transfer_history_iv_transfer"
             android:background="@drawable/bg_circular_image_view"
-            android:contentDescription="@null"
+            android:importantForAccessibility="no"
             android:padding="10dp"
             android:src="@drawable/ic_avatar"
             app:layout_constraintBottom_toBottomOf="parent"

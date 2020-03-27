@@ -40,7 +40,7 @@
             android:layout_height="@dimen/act_home_iv_user"
             android:layout_marginTop="7.5dp"
             android:background="@drawable/ic_avatar"
-            android:contentDescription="@null"
+            android:importantForAccessibility="no"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -46,6 +46,7 @@
                     android:layout_height="@dimen/item_contacts_iv_contact"
                     android:background="@drawable/bg_circular_image_view"
                     android:contentDescription="@null"
+                    android:importantForAccessibility="no"
                     android:padding="10dp"
                     android:src="@drawable/ic_avatar"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -82,6 +83,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/smaller_margin"
                     android:layout_marginTop="@dimen/medium_margin"
+                    android:labelFor="@+id/etTransferValue"
                     android:text="@string/dialog_transfer_tv_value_label"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/text_size_biggest"
@@ -110,7 +112,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvValueLabel"
-                    tools:hint="$ 0,00" />
+                    tools:hint="$0,00" />
 
                 <Button
                     android:id="@+id/btTransferMoney"

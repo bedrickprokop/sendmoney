@@ -84,7 +84,7 @@ class TransferDialog(
         bind.tvContactName.text = contact.name
         bind.tvContactPhone.text = contact.phone
         bind.tvContactPhone.contentDescription = phoneDescription
-        bind.etTransferValue.hint = MoneyUtil.format(0.0)
+        bind.etTransferValue.setText(MoneyUtil.format(0.0))
         bind.etTransferValue.addTextChangedListener(mTextWatcher)
         bind.btTransferMoney.isEnabled = false
         bind.btTransferMoney.setOnClickListener {
