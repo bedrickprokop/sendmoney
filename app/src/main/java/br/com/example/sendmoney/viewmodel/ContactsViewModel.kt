@@ -1,14 +1,13 @@
 package br.com.example.sendmoney.viewmodel
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import br.com.example.sendmoney.model.entity.Contact
 import br.com.example.sendmoney.model.entity.User
 import br.com.example.sendmoney.model.repository.TransferRepository
 import br.com.example.sendmoney.model.repository.UserRepository
 
-class ContactsViewModel(application: Application) : AndroidViewModel(application) {
+class ContactsViewModel : ViewModel() {
 
     private val transferRepository = TransferRepository.getInstance()
     private val userRepository = UserRepository.getInstance()

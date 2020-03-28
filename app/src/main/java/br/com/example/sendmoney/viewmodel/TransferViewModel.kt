@@ -1,6 +1,5 @@
 package br.com.example.sendmoney.viewmodel
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 
-class TransferViewModel(application: Application) : AndroidViewModel(application) {}
+class TransferViewModel : ViewModel() {}
