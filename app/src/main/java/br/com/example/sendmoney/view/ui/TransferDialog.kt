@@ -74,7 +74,7 @@ class TransferDialog(
                     bind.etTransferValue.setText(current)
                     bind.etTransferValue.setSelection(current.length)
                     bind.etTransferValue.addTextChangedListener(this)
-                    bind.btTransferMoney.isEnabled = enableTransferButton
+                    bind.mbTransferMoney.isEnabled = enableTransferButton
                 }
             }
         }
@@ -87,8 +87,8 @@ class TransferDialog(
         bind.tvContactPhone.contentDescription = phoneDescription
         bind.etTransferValue.setText(MoneyUtil.format(0.0))
         bind.etTransferValue.addTextChangedListener(mTextWatcher)
-        bind.btTransferMoney.isEnabled = false
-        bind.btTransferMoney.setOnClickListener {
+        bind.mbTransferMoney.isEnabled = false
+        bind.mbTransferMoney.setOnClickListener {
             val doubleValue = MoneyUtil.parse(bind.etTransferValue.text.toString())
             dismiss()
             listener(doubleValue)

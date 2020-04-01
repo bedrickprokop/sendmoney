@@ -75,7 +75,7 @@
             tools:text="@string/act_home_tv_user_email" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btSendMoney"
+            android:id="@+id/mbSendMoney"
             style="@style/MyButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/text_size_biggest"
             app:cornerRadius="@dimen/medium_radius"
-            app:layout_constraintBottom_toTopOf="@+id/btShowHistory"
+            app:layout_constraintBottom_toTopOf="@+id/mbShowHistory"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -106,7 +106,7 @@
         https://stackoverflow.com/a/57926083
         -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btShowHistory"
+            android:id="@+id/mbShowHistory"
             style="@style/MyButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

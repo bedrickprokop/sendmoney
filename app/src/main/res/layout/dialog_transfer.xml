@@ -115,7 +115,7 @@
                     tools:hint="$0,00" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btTransferMoney"
+                    android:id="@+id/mbTransferMoney"
                     style="@style/MyButtonStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

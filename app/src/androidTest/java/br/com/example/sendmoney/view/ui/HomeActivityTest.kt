@@ -50,15 +50,15 @@ class HomeActivityTest {
         onView(withId(R.id.tvUserName)).check(matches(withText(containsString("Bedrick Prokop"))))
         onView(withId(R.id.tvUserEmail)).check(matches(withText(containsString("bedrick.prokop@gmail.com"))))
 
-        onView(withId(R.id.btSendMoney)).check(matches(isDisplayed()))
+        onView(withId(R.id.mbSendMoney)).check(matches(isDisplayed()))
 
         //TODO remove not
-        onView(withId(R.id.btShowHistory)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.mbShowHistory)).check(matches(not(isDisplayed())))
     }
 
     @Test
     fun btSendMoney_OpensSendMoneyActivity() {
-        onView(withId(R.id.btSendMoney)).perform(click())
+        onView(withId(R.id.mbSendMoney)).perform(click())
         onView(withText("SEND MONEY")).check(matches(isDisplayed()))
     }
 

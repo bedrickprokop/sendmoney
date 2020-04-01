@@ -34,13 +34,13 @@ class HomeActivity : BaseActivity() {
 
         showProgressDialog()
 
-        bind.btSendMoney.setOnClickListener {
+        bind.mbSendMoney.setOnClickListener {
             startActivityForResult(
                 Intent(this, ContactsActivity::class.java),
                 REQUEST_CODE_CONTACTS
             )
         }
-        bind.btShowHistory.setOnClickListener {
+        bind.mbShowHistory.setOnClickListener {
             startActivity(Intent(this, TransferHistoryActivity::class.java))
         }
 
@@ -76,8 +76,8 @@ class HomeActivity : BaseActivity() {
 
                 bind.tvUserName.text = bind.viewModel?.currentUser?.name
                 bind.tvUserEmail.text = bind.viewModel?.currentUser?.email
-                bind.btShowHistory.isEnabled = true
-                bind.btSendMoney.isEnabled = true
+                bind.mbShowHistory.isEnabled = true
+                bind.mbSendMoney.isEnabled = true
             }
             hideProgressDialog()
         }
