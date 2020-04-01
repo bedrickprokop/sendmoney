@@ -33,11 +33,13 @@ class ContactsAdapter(
 
         //TODO Usar framework de imagem - glide, etc
         //holder.bind.ivContactPicture
-        holder.bind.clContainer.setOnClickListener {
+
+        holder.bind.mcContainer.setOnClickListener {
             listener(contact)
         }
 
-        var phoneContentDesctiption = mContext.getString(R.string.item_contacts_tv_contact_phone_description)
+        var phoneContentDesctiption =
+            mContext.getString(R.string.item_contacts_tv_contact_phone_description)
         phoneContentDesctiption = String.format(phoneContentDesctiption, contact.phone)
 
         holder.bind.tvContactName.text = contact.name?.let { StringUtil.truncate(it, 20) }

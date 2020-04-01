@@ -13,7 +13,6 @@ import br.com.example.sendmoney.databinding.ActContactsBinding
 import br.com.example.sendmoney.model.entity.Contact
 import br.com.example.sendmoney.util.SharedUtil
 import br.com.example.sendmoney.view.adapter.ContactsAdapter
-import br.com.example.sendmoney.view.component.DividerItemDecoration
 import br.com.example.sendmoney.viewmodel.ContactsViewModel
 
 class ContactsActivity : BaseActivity() {
@@ -34,7 +33,6 @@ class ContactsActivity : BaseActivity() {
         showProgressDialog()
 
         //RecyclerView
-        val dividerItemDecoration = DividerItemDecoration(this)
         adapter = ContactsAdapter(this, null) { contact ->
 
             val fragmentTransaction = supportFragmentManager.beginTransaction()
@@ -53,7 +51,6 @@ class ContactsActivity : BaseActivity() {
             transferDialog.show(fragmentTransaction, "dialog")
         }
         bind.rvContacts.adapter = adapter
-        bind.rvContacts.addItemDecoration(dividerItemDecoration)
         bind.rvContacts.setHasFixedSize(true)
 
         val user = SharedUtil.getUser(this)

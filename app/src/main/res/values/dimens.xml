@@ -30,6 +30,16 @@
     <dimen name="small_radius">15dp</dimen>
     <dimen name="medium_radius">20dp</dimen>
 
+    <!-- Elevation -->
+    <dimen name="smallest_elevation">2dp</dimen>
+    <dimen name="smaller_elevation">4dp</dimen>
+    <dimen name="small_elevation">6dp</dimen>
+    <dimen name="medium_elevation">8dp</dimen>
+    <dimen name="big_elevation">10dp</dimen>
+    <dimen name="bigger_elevation">12dp</dimen>
+    <dimen name="biggest_elevation">14dp</dimen>
+    <dimen name="biggest_elevation2">16dp</dimen>
+
     <!-- Text Size -->
     <dimen name="text_size_logo">26sp</dimen>
     <dimen name="text_size_appbar">16sp</dimen>
