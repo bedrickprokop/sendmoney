@@ -24,7 +24,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="@dimen/medium_padding">
+                android:layout_margin="@dimen/medium_margin">
 
                 <ImageButton
                     android:id="@+id/ibClose"
@@ -114,8 +114,9 @@
                     app:layout_constraintTop_toBottomOf="@+id/tvValueLabel"
                     tools:hint="$0,00" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btTransferMoney"
+                    style="@style/MyButtonStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/medium_margin"
@@ -123,11 +124,16 @@
                     android:layout_marginEnd="@dimen/medium_margin"
                     android:layout_marginBottom="@dimen/medium_margin"
                     android:accessibilityLiveRegion="polite"
-                    android:background="@drawable/bg_button_selector"
                     android:contentDescription="@string/dialog_transfer_bt_transfer_money"
+                    android:enabled="false"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
                     android:text="@string/dialog_transfer_bt_transfer_money"
+                    android:textAllCaps="false"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/text_size_biggest"
+                    app:cornerRadius="@dimen/medium_radius"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/etTransferValue" />

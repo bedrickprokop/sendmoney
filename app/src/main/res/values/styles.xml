@@ -16,4 +16,12 @@
         <item name="colorControlNormal">@color/colorWhite</item>
     </style>
 
+    <style name="MyButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="materialThemeOverlay">@style/PrimaryButtonThemeOverlay</item>
+    </style>
+
+    <style name="PrimaryButtonThemeOverlay">
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+    </style>
+
 </resources>

@@ -74,38 +74,55 @@
             app:layout_constraintTop_toBottomOf="@+id/tvUserName"
             tools:text="@string/act_home_tv_user_email" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btSendMoney"
+            style="@style/MyButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/medium_margin"
             android:layout_marginEnd="@dimen/medium_margin"
             android:layout_marginBottom="@dimen/medium_margin"
             android:accessibilityLiveRegion="none"
-            android:background="@drawable/bg_button_selector"
             android:contentDescription="@string/act_home_ib_send_money"
             android:enabled="false"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
             android:text="@string/act_home_ib_send_money"
+            android:textAllCaps="false"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/text_size_biggest"
+            app:cornerRadius="@dimen/medium_radius"
             app:layout_constraintBottom_toTopOf="@+id/btShowHistory"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
+        <!--
+        Quando usamos o tema MaterialComponents não existe diferença entre Button e MaterialButton.
+        Existe um auto-inflation habilitado que substituirá o Buttom pelo MaterialButton
+
+        Se voce quiser ter o comportamento do old plain button, voce precisa usar AppCompatButton
+        A classe MaterialComponentsViewInflater é a responsável pela substituição
+
+        https://stackoverflow.com/a/57926083
+        -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btShowHistory"
+            style="@style/MyButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/medium_margin"
             android:layout_marginEnd="@dimen/medium_margin"
             android:layout_marginBottom="@dimen/medium_margin"
             android:accessibilityLiveRegion="none"
-            android:background="@drawable/bg_button_selector"
             android:contentDescription="@string/act_home_ib_history"
             android:enabled="false"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
             android:text="@string/act_home_ib_history"
+            android:textAllCaps="false"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/text_size_biggest"
+            app:cornerRadius="@dimen/medium_radius"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
