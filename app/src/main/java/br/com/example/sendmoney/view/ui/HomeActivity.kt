@@ -9,7 +9,11 @@ import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import br.com.example.sendmoney.*
+import br.com.example.sendmoney.R
+import br.com.example.sendmoney.SendMoneyConsts.ENUS
+import br.com.example.sendmoney.SendMoneyConsts.KEY_USER_TOKEN
+import br.com.example.sendmoney.SendMoneyConsts.REQUEST_CODE_CONTACTS
+import br.com.example.sendmoney.SendMoneyConsts.RESULT_MESSAGE
 import br.com.example.sendmoney.databinding.ActHomeBinding
 import br.com.example.sendmoney.model.entity.User
 import br.com.example.sendmoney.util.SharedUtil

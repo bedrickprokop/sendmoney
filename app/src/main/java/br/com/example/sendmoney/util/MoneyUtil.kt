@@ -1,6 +1,6 @@
 package br.com.example.sendmoney.util
 
-import br.com.example.sendmoney.ENUS
+import br.com.example.sendmoney.SendMoneyConsts.ENUS
 import java.text.NumberFormat
 import java.util.*
 

@@ -12,10 +12,10 @@ import android.view.Window
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
-import br.com.example.sendmoney.COMMA
-import br.com.example.sendmoney.EMPTY
-import br.com.example.sendmoney.PERIOD
 import br.com.example.sendmoney.R
+import br.com.example.sendmoney.SendMoneyConsts.COMMA
+import br.com.example.sendmoney.SendMoneyConsts.EMPTY
+import br.com.example.sendmoney.SendMoneyConsts.PERIOD
 import br.com.example.sendmoney.databinding.DialogTransferBinding
 import br.com.example.sendmoney.model.entity.Contact
 import br.com.example.sendmoney.util.MoneyUtil
