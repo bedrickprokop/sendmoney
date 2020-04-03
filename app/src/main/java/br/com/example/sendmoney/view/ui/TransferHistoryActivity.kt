@@ -10,7 +10,6 @@ import br.com.example.sendmoney.databinding.ActTransferHistoryBinding
 import br.com.example.sendmoney.model.entity.Transfer
 import br.com.example.sendmoney.util.SharedUtil
 import br.com.example.sendmoney.view.adapter.TransferHistoryAdapter
-import br.com.example.sendmoney.view.component.DividerItemDecoration
 import br.com.example.sendmoney.viewmodel.TransferHistoryViewModel
 
 class TransferHistoryActivity : BaseActivity() {
@@ -24,17 +23,15 @@ class TransferHistoryActivity : BaseActivity() {
         bind.viewModel = ViewModelProvider(this).get(TransferHistoryViewModel::class.java)
 
         //ActionBar
-        setSupportActionBar(bind.tActionBar)
+        setSupportActionBar(bind.mtActionBar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         showProgressDialog()
 
         //RecyclerView
-        val dividerItemDecoration = DividerItemDecoration(this)
         adapter = TransferHistoryAdapter(this, null)
         bind.rvTransferHistory.adapter = adapter
-        bind.rvTransferHistory.addItemDecoration(dividerItemDecoration)
         bind.rvTransferHistory.setHasFixedSize(true)
 
         val user = SharedUtil.getUser(this)

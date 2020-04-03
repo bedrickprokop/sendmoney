@@ -48,31 +48,31 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.2" />
 
-        <TextView
-            android:id="@+id/tvUserName"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvUserName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_margin"
-            android:text="@string/act_home_tv_user_name"
+            android:text="@string/act_home_mtv_user_name"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/text_size_medium_title"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivUserPicture"
-            tools:text="@string/act_home_tv_user_name" />
+            tools:text="@string/act_home_mtv_user_name" />
 
-        <TextView
-            android:id="@+id/tvUserEmail"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvUserEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/act_home_tv_user_email"
+            android:text="@string/act_home_mtv_user_email"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/text_size_big"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvUserName"
-            tools:text="@string/act_home_tv_user_email" />
+            app:layout_constraintTop_toBottomOf="@+id/mtvUserName"
+            tools:text="@string/act_home_mtv_user_email" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/mbSendMoney"
@@ -83,11 +83,11 @@
             android:layout_marginEnd="@dimen/medium_margin"
             android:layout_marginBottom="@dimen/medium_margin"
             android:accessibilityLiveRegion="none"
-            android:contentDescription="@string/act_home_ib_send_money"
+            android:contentDescription="@string/act_home_ib_contacts"
             android:enabled="false"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/act_home_ib_send_money"
+            android:text="@string/act_home_ib_contacts"
             android:textAllCaps="false"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/text_size_biggest"
@@ -114,11 +114,11 @@
             android:layout_marginEnd="@dimen/medium_margin"
             android:layout_marginBottom="@dimen/medium_margin"
             android:accessibilityLiveRegion="none"
-            android:contentDescription="@string/act_home_ib_history"
+            android:contentDescription="@string/act_home_ib_transfer_history"
             android:enabled="false"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/act_home_ib_history"
+            android:text="@string/act_home_ib_transfer_history"
             android:textAllCaps="false"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/text_size_biggest"

@@ -14,9 +14,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/smallest_margin"
         android:layout_marginBottom="@dimen/smallest_margin"
-        app:cardBackgroundColor="@color/colorTransparent"
+        app:cardBackgroundColor="@color/colorAccentDark"
         app:cardCornerRadius="@dimen/medium_radius"
-        app:cardElevation="@dimen/smaller_elevation"
+        app:cardElevation="@dimen/small_elevation"
         app:cardUseCompatPadding="false">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,28 +36,28 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tvContactName"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/mtvContactName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/smaller_margin"
                 android:layout_marginTop="@dimen/bigger_margin"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/colorWhite"
                 android:textSize="@dimen/text_size_medium_title"
-                app:layout_constraintBottom_toTopOf="@+id/tvContactPhone"
+                app:layout_constraintBottom_toTopOf="@+id/mtvContactPhone"
                 app:layout_constraintStart_toEndOf="@+id/ivContactPicture"
                 app:layout_constraintTop_toTopOf="@id/ivContactPicture"
                 tools:text="Bilbo Baggins" />
 
-            <TextView
-                android:id="@+id/tvContactPhone"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/mtvContactPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/smaller_margin"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/text_size_bigger"
                 app:layout_constraintStart_toEndOf="@+id/ivContactPicture"
-                app:layout_constraintTop_toBottomOf="@+id/tvContactName"
+                app:layout_constraintTop_toBottomOf="@+id/mtvContactName"
                 tools:text="(11) 998 834 023" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

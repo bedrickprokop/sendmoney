@@ -15,16 +15,18 @@
         android:layout_height="match_parent"
         android:background="@android:color/transparent">
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.MaterialComponents.CardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/colorPrimaryDark2"
+            android:focusableInTouchMode="true"
             app:cardCornerRadius="@dimen/medium_radius">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="@dimen/medium_margin">
+                android:background="@drawable/bg_default"
+                android:padding="@dimen/medium_margin">
 
                 <ImageButton
                     android:id="@+id/ibClose"
@@ -40,24 +42,38 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/mtvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/small_margin"
+                    android:text="@string/dialog_transfer_mtv_title"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_medium_title"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/ibClose"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ibClose" />
+
                 <ImageView
                     android:id="@+id/ivContactPicture"
                     android:layout_width="@dimen/item_contacts_iv_contact"
                     android:layout_height="@dimen/item_contacts_iv_contact"
+                    android:layout_marginTop="@dimen/big_margin"
                     android:background="@drawable/bg_circular_image_view"
                     android:contentDescription="@null"
                     android:importantForAccessibility="no"
-                    android:padding="10dp"
+                    android:padding="@dimen/small_padding"
                     android:src="@drawable/ic_avatar"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/mtvTitle" />
 
-                <TextView
-                    android:id="@+id/tvContactName"
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/mtvContactName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/smaller_margin"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/text_size_medium_title"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -65,54 +81,46 @@
                     app:layout_constraintTop_toBottomOf="@+id/ivContactPicture"
                     tools:text="Bilbo Baggins" />
 
-                <TextView
-                    android:id="@+id/tvContactPhone"
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/mtvContactPhone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/smaller_margin"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/text_size_bigger"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvContactName"
+                    app:layout_constraintTop_toBottomOf="@+id/mtvContactName"
                     tools:text="(11) 998 834 023" />
 
-                <TextView
-                    android:id="@+id/tvValueLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/smaller_margin"
-                    android:layout_marginTop="@dimen/medium_margin"
-                    android:labelFor="@+id/etTransferValue"
-                    android:text="@string/dialog_transfer_tv_value_label"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_size_biggest"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvContactPhone"
-                    tools:text="Amount to be sent:" />
-
-                <EditText
-                    android:id="@+id/etTransferValue"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilTransferLabel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/medium_margin"
                     android:layout_marginTop="@dimen/medium_margin"
                     android:layout_marginEnd="@dimen/medium_margin"
-                    android:background="@drawable/bg_rounded_edit_text"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:importantForAutofill="no"
-                    android:inputType="numberDecimal"
-                    android:paddingTop="@dimen/smaller_padding"
-                    android:paddingBottom="@dimen/smaller_padding"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimaryDark"
-                    android:textSize="@dimen/dialog_transfer_et_text_size"
-                    android:textStyle="bold"
+                    android:hint="@string/dialog_transfer_til_value_label"
+                    android:labelFor="@+id/tietTransferValue"
+                    android:paddingStart="@dimen/smallest_padding"
+                    android:paddingEnd="@dimen/smallest_padding"
+                    android:textColorHint="@color/colorWhite"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvValueLabel"
-                    tools:hint="$0,00" />
+                    app:layout_constraintTop_toBottomOf="@+id/mtvContactPhone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tietTransferValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorTransparent"
+                        android:gravity="center_horizontal|bottom"
+                        android:importantForAutofill="no"
+                        android:inputType="numberDecimal"
+                        android:textColor="@color/colorPrimary"
+                        android:textColorHint="@color/colorWhite"
+                        android:textSize="@dimen/text_size_medium_title"
+                        android:textStyle="bold" />
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/mbTransferMoney"
@@ -124,11 +132,11 @@
                     android:layout_marginEnd="@dimen/medium_margin"
                     android:layout_marginBottom="@dimen/medium_margin"
                     android:accessibilityLiveRegion="polite"
-                    android:contentDescription="@string/dialog_transfer_bt_transfer_money"
+                    android:contentDescription="@string/dialog_transfer_mb_transfer_money"
                     android:enabled="false"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
-                    android:text="@string/dialog_transfer_bt_transfer_money"
+                    android:text="@string/dialog_transfer_mb_transfer_money"
                     android:textAllCaps="false"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/text_size_biggest"
@@ -136,11 +144,11 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etTransferValue" />
+                    app:layout_constraintTop_toBottomOf="@+id/tilTransferLabel" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
     </FrameLayout>
 </layout>

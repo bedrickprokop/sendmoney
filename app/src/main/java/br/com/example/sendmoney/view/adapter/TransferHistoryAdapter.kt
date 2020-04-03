@@ -34,13 +34,13 @@ class TransferHistoryAdapter(
         //holder.bind.ivTransferPicture
 
         var phoneContentDescription =
-            mContext.getString(R.string.item_transfer_history_tv_transfer_phone_description)
+            mContext.getString(R.string.item_transfer_history_mtv_transfer_phone_description)
         phoneContentDescription = String.format(phoneContentDescription, transfer?.phone)
 
-        holder.bind.tvTransferName.text = transfer?.name?.let { StringUtil.truncate(it, 20) }
-        holder.bind.tvTransferPhone.text = transfer?.phone
-        holder.bind.tvTransferPhone.contentDescription = phoneContentDescription
-        holder.bind.tvTransferValue.text = transfer?.value?.let { MoneyUtil.format(it.toDouble()) }
+        holder.bind.mtvTransferName.text = transfer?.name?.let { StringUtil.truncate(it, 20) }
+        holder.bind.mtvTransferPhone.text = transfer?.phone
+        holder.bind.mtvTransferPhone.contentDescription = phoneContentDescription
+        holder.bind.mtvTransferValue.text = transfer?.value?.let { MoneyUtil.format(it.toDouble()) }
     }
 
     override fun getItemCount(): Int {

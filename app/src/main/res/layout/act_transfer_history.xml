@@ -26,21 +26,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/tActionBar"
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/mtActionBar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize">
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/act_transfer_history_ab_title"
+                    android:text="@string/act_transfer_history_mtv_title"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/text_size_medium_title"
                     android:textStyle="bold" />
 
-            </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.MaterialToolbar>
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -58,7 +58,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ablActionBar"
-            tools:itemCount="3"
+            tools:itemCount="7"
             tools:listitem="@layout/item_contacts" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

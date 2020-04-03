@@ -78,8 +78,8 @@ class HomeActivity : BaseActivity() {
                 SharedUtil.addString(this, KEY_USER_TOKEN, it)
                 bind.viewModel?.currentUser?.token = it
 
-                bind.tvUserName.text = bind.viewModel?.currentUser?.name
-                bind.tvUserEmail.text = bind.viewModel?.currentUser?.email
+                bind.mtvUserName.text = bind.viewModel?.currentUser?.name
+                bind.mtvUserEmail.text = bind.viewModel?.currentUser?.email
                 bind.mbShowHistory.isEnabled = true
                 bind.mbSendMoney.isEnabled = true
             }

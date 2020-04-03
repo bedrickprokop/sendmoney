@@ -7,58 +7,74 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcContainer"
+        style="@style/Widget.MaterialComponents.CardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/smallest_padding"
-        android:paddingBottom="@dimen/smallest_padding">
+        android:layout_marginTop="@dimen/smallest_margin"
+        android:layout_marginBottom="@dimen/smallest_margin"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@color/colorAccentDark"
+        app:cardCornerRadius="@dimen/medium_radius"
+        app:cardElevation="@dimen/small_elevation"
+        app:cardUseCompatPadding="false">
 
-        <ImageView
-            android:id="@+id/ivTransferPicture"
-            android:layout_width="@dimen/item_transfer_history_iv_transfer"
-            android:layout_height="@dimen/item_transfer_history_iv_transfer"
-            android:background="@drawable/bg_circular_image_view"
-            android:importantForAccessibility="no"
-            android:padding="10dp"
-            android:src="@drawable/ic_avatar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvTransferName"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clContainer"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/smaller_margin"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/text_size_medium_title"
-            app:layout_constraintBottom_toTopOf="@+id/tvTransferPhone"
-            app:layout_constraintStart_toEndOf="@+id/ivTransferPicture"
-            app:layout_constraintTop_toTopOf="@id/ivTransferPicture"
-            tools:text="Bilbo Baggins" />
+            android:paddingTop="@dimen/smallest_padding"
+            android:paddingBottom="@dimen/smallest_padding">
 
-        <TextView
-            android:id="@+id/tvTransferPhone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/smaller_margin"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/text_size_bigger"
-            app:layout_constraintStart_toEndOf="@+id/ivTransferPicture"
-            app:layout_constraintTop_toBottomOf="@+id/tvTransferName"
-            tools:text="(11) 998 834 023" />
+            <ImageView
+                android:id="@+id/ivTransferPicture"
+                android:layout_width="@dimen/item_transfer_history_iv_transfer"
+                android:layout_height="@dimen/item_transfer_history_iv_transfer"
+                android:background="@drawable/bg_circular_image_view"
+                android:importantForAccessibility="no"
+                android:padding="10dp"
+                android:src="@drawable/ic_avatar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvTransferValue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/smaller_margin"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/text_size_big"
-            app:layout_constraintStart_toEndOf="@+id/ivTransferPicture"
-            app:layout_constraintTop_toBottomOf="@+id/tvTransferPhone"
-            tools:text="R$ 120,00" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/mtvTransferName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/smaller_margin"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_medium_title"
+                app:layout_constraintBottom_toTopOf="@+id/mtvTransferPhone"
+                app:layout_constraintStart_toEndOf="@+id/ivTransferPicture"
+                app:layout_constraintTop_toTopOf="@id/ivTransferPicture"
+                tools:text="Bilbo Baggins" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/mtvTransferPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/smaller_margin"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/text_size_bigger"
+                app:layout_constraintStart_toEndOf="@+id/ivTransferPicture"
+                app:layout_constraintTop_toBottomOf="@+id/mtvTransferName"
+                tools:text="(11) 998 834 023" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/mtvTransferValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/smaller_margin"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/text_size_big"
+                app:layout_constraintStart_toEndOf="@+id/ivTransferPicture"
+                app:layout_constraintTop_toBottomOf="@+id/mtvTransferPhone"
+                tools:text="R$ 120,00" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 </layout>

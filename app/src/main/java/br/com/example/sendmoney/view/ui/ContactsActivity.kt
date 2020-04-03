@@ -26,7 +26,7 @@ class ContactsActivity : BaseActivity() {
         bind.viewModel = ViewModelProvider(this).get(ContactsViewModel::class.java)
 
         //ActionBar
-        setSupportActionBar(bind.tActionBar)
+        setSupportActionBar(bind.mtActionBar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 

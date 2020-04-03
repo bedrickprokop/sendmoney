@@ -2,25 +2,26 @@
     <string name="app_name">SendMoney</string>
 
     <!-- Home Activity -->
-    <string name="act_home_tv_user_name">Current User</string>
-    <string name="act_home_tv_user_email">aaa.aaa@aaa.com</string>
-    <string name="act_home_ib_send_money">Send money</string>
-    <string name="act_home_ib_history">History</string>
+    <string name="act_home_mtv_user_name">Current User</string>
+    <string name="act_home_mtv_user_email">aaa.aaa@aaa.com</string>
+    <string name="act_home_ib_contacts">Contacts</string>
+    <string name="act_home_ib_transfer_history">Transfer history</string>
     <string name="act_home_iv_user">User</string>
 
     <!-- Contacts Activity -->
-    <string name="act_contacts_ab_title">SEND MONEY</string>
-    <string name="item_contacts_tv_contact_phone_description"><![CDATA[Mobile number is %1$s]]></string>
+    <string name="act_contacts_mtv_title">Contacts</string>
+    <string name="item_contacts_mtv_contact_phone_description"><![CDATA[Mobile number is %1$s]]></string>
 
     <!-- Transfer Dialog -->
     <string name="dialog_transfer_ib_close">Close</string>
-    <string name="dialog_transfer_tv_value_label">Amount to be sent:</string>
-    <string name="dialog_transfer_bt_transfer_money">Send</string>
-    <string name="dialog_transfer_tv_contact_phone_description"><![CDATA[Mobile number is %1$s]]></string>
+    <string name="dialog_transfer_mtv_title">Transfer Money</string>
+    <string name="dialog_transfer_til_value_label">Amount to be sent</string>
+    <string name="dialog_transfer_mb_transfer_money">Send</string>
+    <string name="dialog_transfer_mtv_contact_phone_description"><![CDATA[Mobile number is %1$s]]></string>
 
     <!-- TransferHistory Activity -->
-    <string name="act_transfer_history_ab_title">HISTORY</string>
-    <string name="item_transfer_history_tv_transfer_phone_description"><![CDATA[Mobile number is %1$s]]></string>
+    <string name="act_transfer_history_mtv_title">Transfer History</string>
+    <string name="item_transfer_history_mtv_transfer_phone_description"><![CDATA[Mobile number is %1$s]]></string>
 
 
     <string name="result_message_send_money_success">Amount transferred successfully!</string>

@@ -39,7 +39,7 @@ class TransferDialog(
         Objects.requireNonNull<Window>(dialog?.window)
             .setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-        var phoneDescription = getString(R.string.dialog_transfer_tv_contact_phone_description)
+        var phoneDescription = getString(R.string.dialog_transfer_mtv_contact_phone_description)
         phoneDescription = String.format(phoneDescription, contact.phone)
 
         bind = DataBindingUtil.inflate(
@@ -59,7 +59,7 @@ class TransferDialog(
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 if (s.toString() != current) {
-                    bind.etTransferValue.removeTextChangedListener(this)
+                    bind.tietTransferValue.removeTextChangedListener(this)
 
                     val currencySymbol = MoneyUtil.getCurrencySymbol()
                     val regex = "[$currencySymbol${COMMA}${PERIOD}]".toRegex()
@@ -71,9 +71,9 @@ class TransferDialog(
                     val strFormatted = MoneyUtil.format(parsed / 100)
                     current = strFormatted
 
-                    bind.etTransferValue.setText(current)
-                    bind.etTransferValue.setSelection(current.length)
-                    bind.etTransferValue.addTextChangedListener(this)
+                    bind.tietTransferValue.setText(current)
+                    bind.tietTransferValue.setSelection(current.length)
+                    bind.tietTransferValue.addTextChangedListener(this)
                     bind.mbTransferMoney.isEnabled = enableTransferButton
                 }
             }
@@ -82,14 +82,13 @@ class TransferDialog(
         bind.ibClose.setOnClickListener {
             dismiss()
         }
-        bind.tvContactName.text = contact.name
-        bind.tvContactPhone.text = contact.phone
-        bind.tvContactPhone.contentDescription = phoneDescription
-        bind.etTransferValue.setText(MoneyUtil.format(0.0))
-        bind.etTransferValue.addTextChangedListener(mTextWatcher)
+        bind.mtvContactName.text = contact.name
+        bind.mtvContactPhone.text = contact.phone
+        bind.mtvContactPhone.contentDescription = phoneDescription
+        bind.tietTransferValue.addTextChangedListener(mTextWatcher)
         bind.mbTransferMoney.isEnabled = false
         bind.mbTransferMoney.setOnClickListener {
-            val doubleValue = MoneyUtil.parse(bind.etTransferValue.text.toString())
+            val doubleValue = MoneyUtil.parse(bind.tietTransferValue.text.toString())
             dismiss()
             listener(doubleValue)
         }
