@@ -26,7 +26,7 @@ class ContactsActivity : BaseActivity() {
         bind.viewModel = ViewModelProvider(this).get(ContactsViewModel::class.java)
 
         //StatusBar
-        setStatusBarColor(bind.root, R.color.colorYellow)
+        setStatusBarColor(bind.root, R.color.colorWhite)
 
         //ActionBar
         setSupportActionBar(bind.mtActionBar)
