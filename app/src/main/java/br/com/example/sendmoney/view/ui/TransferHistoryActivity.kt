@@ -22,6 +22,9 @@ class TransferHistoryActivity : BaseActivity() {
         bind = DataBindingUtil.setContentView(this, R.layout.act_transfer_history)
         bind.viewModel = ViewModelProvider(this).get(TransferHistoryViewModel::class.java)
 
+        //StatusBar
+        setStatusBarColor(bind.root, R.color.colorDarkRed)
+
         //ActionBar
         setSupportActionBar(bind.mtActionBar)
         supportActionBar?.setDisplayShowTitleEnabled(false)

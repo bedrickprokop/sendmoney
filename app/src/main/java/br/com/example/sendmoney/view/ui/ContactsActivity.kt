@@ -25,6 +25,9 @@ class ContactsActivity : BaseActivity() {
         bind = DataBindingUtil.setContentView(this, R.layout.act_contacts)
         bind.viewModel = ViewModelProvider(this).get(ContactsViewModel::class.java)
 
+        //StatusBar
+        setStatusBarColor(bind.root, R.color.colorYellow)
+
         //ActionBar
         setSupportActionBar(bind.mtActionBar)
         supportActionBar?.setDisplayShowTitleEnabled(false)

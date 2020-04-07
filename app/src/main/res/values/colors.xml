@@ -18,4 +18,10 @@
     <color name="colorBackground">#FFF3F3F3</color>
 
     <color name="colorTransparent">#00000000</color>
+    <color name="colorSemiTransparent">#88000000</color>
+
+    <color name="colorRed">#FFFF0000</color>
+    <color name="colorDarkRed">#FF880000</color>
+    <color name="colorOrange">#FFFF9900</color>
+    <color name="colorYellow">#FFffdd44</color>
 </resources>

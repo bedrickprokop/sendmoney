@@ -3,12 +3,8 @@ package br.com.example.sendmoney.util
 import br.com.example.sendmoney.SendMoneyConsts.ELLIPSIS
 
 
-class StringUtil {
+object StringUtil {
 
-    companion object {
-
-        fun truncate(text: String, maxLength: Int): String {
-            return if (text.length > maxLength) text.substring(0, maxLength) + ELLIPSIS else text
-        }
-    }
+    fun truncate(text: String, maxLength: Int): String =
+        if (text.length > maxLength) text.substring(0, maxLength) + ELLIPSIS else text
 }
