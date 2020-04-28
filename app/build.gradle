@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'org.jetbrains.dokka'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -58,6 +59,11 @@ android {
                 && variant.getFlavors().get(0).name == 'mock') {
             variant.setIgnore(true)
         }
+    }
+
+    dokka {
+        outputFormat = 'kotlin-website'
+        outputDirectory = "$buildDir/dokka"
     }
 }
 
