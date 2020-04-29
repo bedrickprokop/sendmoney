@@ -62,7 +62,7 @@ android {
     }
 
     dokka {
-        outputFormat = 'kotlin-website'
+        outputFormat = 'javadoc'
         outputDirectory = "$buildDir/dokka"
     }
 }
