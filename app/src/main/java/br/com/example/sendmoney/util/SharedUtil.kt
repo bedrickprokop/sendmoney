@@ -1,10 +1,10 @@
 package br.com.example.sendmoney.util
 
 import android.content.Context
-import br.com.example.sendmoney.SendMoneyConsts.KEY_USER_EMAIL
-import br.com.example.sendmoney.SendMoneyConsts.KEY_USER_ID
-import br.com.example.sendmoney.SendMoneyConsts.KEY_USER_NAME
-import br.com.example.sendmoney.SendMoneyConsts.KEY_USER_TOKEN
+import br.com.example.sendmoney.config.SendMoneyConsts.KEY_USER_EMAIL
+import br.com.example.sendmoney.config.SendMoneyConsts.KEY_USER_ID
+import br.com.example.sendmoney.config.SendMoneyConsts.KEY_USER_NAME
+import br.com.example.sendmoney.config.SendMoneyConsts.KEY_USER_TOKEN
 import br.com.example.sendmoney.model.entity.User
 
 object SharedUtil {

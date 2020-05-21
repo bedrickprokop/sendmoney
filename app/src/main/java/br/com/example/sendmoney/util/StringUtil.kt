@@ -1,6 +1,6 @@
 package br.com.example.sendmoney.util
 
-import br.com.example.sendmoney.SendMoneyConsts.ELLIPSIS
+import br.com.example.sendmoney.config.SendMoneyConsts.ELLIPSIS
 
 
 object StringUtil {
