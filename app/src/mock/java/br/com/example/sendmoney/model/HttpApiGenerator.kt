@@ -1,6 +1,6 @@
 package br.com.example.sendmoney.model
 
-import br.com.example.sendmoney.SendMoneyConsts.BASE_URL
+import br.com.example.sendmoney.config.SendMoneyConsts.BASE_URL
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

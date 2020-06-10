@@ -1,4 +1,4 @@
-package br.com.example.sendmoney
+package br.com.example.sendmoney.config
 
 import android.app.Application
 import br.com.example.sendmoney.model.entity.User
