@@ -1,24 +1,10 @@
 package br.com.example.sendmoney.viewmodel;
 
-/*
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
-
-import br.com.example.sendmoney.model.entity.User;
-import br.com.example.sendmoney.model.repository.UserRepository;
-
-@RunWith(JUnit4.class)
+//@RunWith(JUnit4.class)
 public class ContactsViewModelTest {
 
-    @Rule
+    /*@Rule
     public InstantTaskExecutorRule instantRule = new InstantTaskExecutorRule();
     @Mock
     private UserRepository userRepository;
@@ -38,7 +24,7 @@ public class ContactsViewModelTest {
         viewModel.loadContactListObservable(user);
 
         Mockito.verify(userRepository, Mockito.times(1)).loadContacts(user);
-    }
+    }*/
 
 }
-*/
+
