@@ -15,12 +15,7 @@
         android:layout_height="match_parent"
         android:background="@android:color/transparent">
 
-        <com.google.android.material.card.MaterialCardView
-            style="@style/Widget.MaterialComponents.CardView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusableInTouchMode="true"
-            app:cardCornerRadius="@dimen/medium_radius">
+        <com.google.android.material.card.MaterialCardView style="@style/BaseCardViewStyle.Dialog">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -30,27 +25,19 @@
 
                 <ImageButton
                     android:id="@+id/ibClose"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
+                    style="@style/BaseImageButtonStyle"
                     android:contentDescription="@string/dialog_transfer_ib_close"
                     android:paddingStart="@dimen/smaller_padding"
                     android:paddingTop="@dimen/smaller_padding"
-                    android:paddingEnd="@dimen/medium_padding"
-                    android:paddingBottom="@dimen/medium_padding"
                     android:src="@drawable/ic_close_white_24dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.textview.MaterialTextView
+                <TextView
                     android:id="@+id/mtvTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/BaseTextViewStyle.MediumTitle.Bold"
                     android:layout_marginBottom="@dimen/small_margin"
                     android:text="@string/dialog_transfer_mtv_title"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_size_medium_title"
-                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/ibClose"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -58,34 +45,25 @@
 
                 <ImageView
                     android:id="@+id/ivContactPicture"
-                    android:layout_width="@dimen/item_contacts_iv_contact"
-                    android:layout_height="@dimen/item_contacts_iv_contact"
+                    style="@style/BaseImageViewPictureStyle"
                     android:layout_marginTop="@dimen/big_margin"
-                    android:background="@drawable/bg_circular_image_view"
-                    android:importantForAccessibility="no"
-                    android:padding="@dimen/small_padding"
-                    android:src="@drawable/ic_avatar"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/mtvTitle" />
 
-                <com.google.android.material.textview.MaterialTextView
+                <TextView
                     android:id="@+id/mtvContactName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorWhite"
+                    style="@style/BaseTextViewStyle.MediumTitle"
                     android:textSize="@dimen/text_size_medium_title"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ivContactPicture"
                     tools:text="Bilbo Baggins" />
 
-                <com.google.android.material.textview.MaterialTextView
+                <TextView
                     android:id="@+id/mtvContactPhone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/BaseTextViewStyle.BiggerText"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/text_size_bigger"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/mtvContactName"
@@ -93,53 +71,26 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilTransferLabel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/medium_margin"
-                    android:layout_marginTop="@dimen/medium_margin"
-                    android:layout_marginEnd="@dimen/medium_margin"
+                    style="@style/BaseTextInputLayoutStyle"
                     android:hint="@string/dialog_transfer_til_value_label"
                     android:labelFor="@+id/tietTransferValue"
-                    android:paddingStart="@dimen/smallest_padding"
-                    android:paddingEnd="@dimen/smallest_padding"
-                    android:textColorHint="@color/colorWhite"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/mtvContactPhone">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tietTransferValue"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/colorTransparent"
-                        android:gravity="center_horizontal|bottom"
-                        android:importantForAutofill="no"
-                        android:inputType="numberDecimal"
-                        android:textColor="@color/colorPrimary"
-                        android:textColorHint="@color/colorWhite"
-                        android:textSize="@dimen/text_size_medium_title"
-                        android:textStyle="bold" />
+                        style="@style/BaseTextInputEditTextStyle"
+                        android:inputType="numberDecimal" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.button.MaterialButton
+                <Button
                     android:id="@+id/mbTransferMoney"
-                    style="@style/MyButtonStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/medium_margin"
+                    style="@style/BaseButtonStyle"
                     android:layout_marginTop="@dimen/medium_margin"
-                    android:layout_marginEnd="@dimen/medium_margin"
-                    android:layout_marginBottom="@dimen/medium_margin"
                     android:accessibilityLiveRegion="polite"
                     android:contentDescription="@string/dialog_transfer_mb_transfer_money"
-                    android:enabled="false"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp"
                     android:text="@string/dialog_transfer_mb_transfer_money"
-                    android:textAllCaps="false"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_size_biggest"
-                    app:cornerRadius="@dimen/medium_radius"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

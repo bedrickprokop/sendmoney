@@ -37,92 +37,47 @@
 
         <ImageView
             android:id="@+id/ivUserPicture"
-            android:layout_width="@dimen/act_home_iv_user"
-            android:layout_height="@dimen/act_home_iv_user"
+            style="@style/BaseImageViewPictureStyle.Home"
             android:layout_marginTop="7.5dp"
-            android:background="@drawable/ic_avatar"
-            android:importantForAccessibility="no"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.2" />
 
-        <com.google.android.material.textview.MaterialTextView
+        <TextView
             android:id="@+id/mtvUserName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/BaseTextViewStyle.MediumTitle.Bold"
             android:layout_marginTop="@dimen/small_margin"
             android:text="@string/act_home_mtv_user_name"
-            android:textColor="@color/colorWhite"
-            android:textSize="@dimen/text_size_medium_title"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivUserPicture"
             tools:text="@string/act_home_mtv_user_name" />
 
-        <com.google.android.material.textview.MaterialTextView
+        <TextView
             android:id="@+id/mtvUserEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/BaseTextViewStyle.BigText"
             android:text="@string/act_home_mtv_user_email"
-            android:textColor="@color/colorWhite"
-            android:textSize="@dimen/text_size_big"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mtvUserName"
             tools:text="@string/act_home_mtv_user_email" />
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/mbSendMoney"
-            style="@style/MyButtonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/medium_margin"
-            android:layout_marginEnd="@dimen/medium_margin"
-            android:layout_marginBottom="@dimen/medium_margin"
-            android:accessibilityLiveRegion="none"
+            style="@style/BaseButtonStyle"
             android:contentDescription="@string/act_home_ib_contacts"
-            android:enabled="false"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
             android:text="@string/act_home_ib_contacts"
-            android:textAllCaps="false"
-            android:textColor="@color/colorWhite"
-            android:textSize="@dimen/text_size_biggest"
-            app:cornerRadius="@dimen/medium_radius"
             app:layout_constraintBottom_toTopOf="@+id/mbShowHistory"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <!--
-        Quando usamos o tema MaterialComponents não existe diferença entre Button e MaterialButton.
-        Existe um auto-inflation habilitado que substituirá o Buttom pelo MaterialButton
-
-        Se voce quiser ter o comportamento do old plain button, voce precisa usar AppCompatButton
-        A classe MaterialComponentsViewInflater é a responsável pela substituição
-
-        https://stackoverflow.com/a/57926083
-        -->
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/mbShowHistory"
-            style="@style/MyButtonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/medium_margin"
-            android:layout_marginEnd="@dimen/medium_margin"
-            android:layout_marginBottom="@dimen/medium_margin"
-            android:accessibilityLiveRegion="none"
+            style="@style/BaseButtonStyle"
             android:contentDescription="@string/act_home_ib_transfer_history"
-            android:enabled="false"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
             android:text="@string/act_home_ib_transfer_history"
-            android:textAllCaps="false"
-            android:textColor="@color/colorWhite"
-            android:textSize="@dimen/text_size_biggest"
-            app:cornerRadius="@dimen/medium_radius"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
