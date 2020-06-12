@@ -45,25 +45,24 @@
     <dimen name="text_size_appbar">16sp</dimen>
     <dimen name="text_size_button">15sp</dimen>
 
-    <dimen name="text_size_smallest">11sp</dimen>
-    <dimen name="text_size_smaller">12sp</dimen>
-    <dimen name="text_size_small">13sp</dimen>
-    <dimen name="text_size_medium">14sp</dimen>
-    <dimen name="text_size_big">15sp</dimen>
-    <dimen name="text_size_bigger">16sp</dimen>
-    <dimen name="text_size_biggest">17sp</dimen>
+    <dimen name="text_size_smallest">10sp</dimen>
+    <dimen name="text_size_smaller">11sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_medium">13sp</dimen>
+    <dimen name="text_size_big">14sp</dimen>
+    <dimen name="text_size_bigger">15sp</dimen>
+    <dimen name="text_size_biggest">16sp</dimen>
 
-    <dimen name="text_size_small_title">18sp</dimen>
-    <dimen name="text_size_medium_title">20sp</dimen>
-    <dimen name="text_size_big_title">22sp</dimen>
-    <dimen name="text_size_bigger_title">24sp</dimen>
+    <dimen name="text_size_small_title">16sp</dimen>
+    <dimen name="text_size_medium_title">18sp</dimen>
+    <dimen name="text_size_big_title">20sp</dimen>
+    <dimen name="text_size_bigger_title">22sp</dimen>
 
 
+    <!-- Other -->
     <dimen name="act_home_iv_user">130dp</dimen>
     <dimen name="act_home_pb_user">150dp</dimen>
 
     <dimen name="act_contacts_v_height">1dp</dimen>
-    <dimen name="item_contacts_iv_contact">100dp</dimen>
-    <dimen name="item_transfer_history_iv_transfer">100dp</dimen>
     <dimen name="dialog_transfer_et_text_size">30sp</dimen>
 </resources>

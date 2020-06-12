@@ -9,15 +9,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/mcContainer"
-        style="@style/Widget.MaterialComponents.CardView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/smallest_margin"
-        android:layout_marginBottom="@dimen/smallest_margin"
-        app:cardBackgroundColor="@color/colorAccentDark"
-        app:cardCornerRadius="@dimen/medium_radius"
-        app:cardElevation="@dimen/small_elevation"
-        app:cardUseCompatPadding="false">
+        style="@style/BaseCardViewStyle.RecyclerViewItem">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clContainer"
@@ -26,36 +18,26 @@
 
             <ImageView
                 android:id="@+id/ivContactPicture"
-                android:layout_width="@dimen/item_contacts_iv_contact"
-                android:layout_height="@dimen/item_contacts_iv_contact"
-                android:background="@drawable/bg_circular_image_view"
-                android:importantForAccessibility="no"
-                android:padding="10dp"
-                android:src="@drawable/ic_avatar"
+                style="@style/BaseImageViewPictureStyle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.textview.MaterialTextView
+            <TextView
                 android:id="@+id/mtvContactName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/BaseTextViewStyle.MediumTitle"
                 android:layout_marginStart="@dimen/smaller_margin"
                 android:layout_marginTop="@dimen/bigger_margin"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/text_size_medium_title"
                 app:layout_constraintBottom_toTopOf="@+id/mtvContactPhone"
                 app:layout_constraintStart_toEndOf="@+id/ivContactPicture"
                 app:layout_constraintTop_toTopOf="@id/ivContactPicture"
                 tools:text="Bilbo Baggins" />
 
-            <com.google.android.material.textview.MaterialTextView
+            <TextView
                 android:id="@+id/mtvContactPhone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/BaseTextViewStyle.BiggerText"
                 android:layout_marginStart="@dimen/smaller_margin"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/text_size_bigger"
                 app:layout_constraintStart_toEndOf="@+id/ivContactPicture"
                 app:layout_constraintTop_toBottomOf="@+id/mtvContactName"
                 tools:text="(11) 998 834 023" />

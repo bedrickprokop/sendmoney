@@ -1,27 +1,225 @@
+<!--
+    Quando usamos o tema MaterialComponents não existe diferença entre Button e MaterialButton.
+    Existe um auto-inflation habilitado que substituirá o Buttom pelo MaterialButton
+
+    Se voce quiser ter o comportamento do old plain button, voce precisa usar AppCompatButton
+    A classe MaterialComponentsViewInflater é a responsável pela substituição
+
+    https://stackoverflow.com/a/57926083
+
+    Diferença entre MaterialToolbar e Toolbar
+    https://stackoverflow.com/questions/59082957/when-to-use-materialtoolbar-and-androidx-toolbar-and-the-difference-between-both
+-->
+
 <resources>
 
-    <!-- Base application theme. -->
-
-    <!--Theme.AppCompat.Light.NoActionBar -->
+    <!--
+         ***********************************************************************
+                                    Default theme
+         ***********************************************************************
+    -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Customize your theme here. -->
+        <!--Theme.AppCompat.Light.NoActionBar -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <!-- @style/ThemeOverlay.AppCompat.ActionBar -->
+
+    <!--
+         ***********************************************************************
+                                    ActionBar theme
+         ***********************************************************************
+    -->
     <style name="ActionBarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
+        <!-- @style/ThemeOverlay.AppCompat.ActionBar -->
         <!-- THIS is where you can color the arrow! -->
         <item name="colorControlNormal">@color/colorWhite</item>
     </style>
 
-    <style name="MyButtonStyle" parent="Widget.MaterialComponents.Button">
-        <item name="materialThemeOverlay">@style/PrimaryButtonThemeOverlay</item>
+
+    <!--
+         ***********************************************************************
+                                    AppBarLayout styles
+         ***********************************************************************
+    -->
+    <style name="BaseAppBarLayout" parent="Widget.Design.AppBarLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/colorTransparent</item>
+        <item name="android:theme">@style/ActionBarTheme</item>
+        <item name="elevation">0dp</item>
     </style>
 
-    <style name="PrimaryButtonThemeOverlay">
+
+    <!--
+         ***********************************************************************
+                                    Toolbar styles
+         ***********************************************************************
+    -->
+    <style name="BaseToolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+    </style>
+
+
+    <!--
+         ***********************************************************************
+                                    Card styles
+         ***********************************************************************
+    -->
+    <style name="BaseCardViewStyle" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="cardCornerRadius">@dimen/medium_radius</item>
+    </style>
+
+    <style name="BaseCardViewStyle.Dialog" parent="BaseCardViewStyle">
+        <item name="android:focusableInTouchMode">true</item>
+    </style>
+
+    <style name="BaseCardViewStyle.RecyclerViewItem" parent="BaseCardViewStyle">
+        <item name="android:layout_marginTop">@dimen/smallest_margin</item>
+        <item name="android:layout_marginBottom">@dimen/smallest_margin</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+
+        <item name="cardBackgroundColor">@color/colorAccentDark</item>
+        <item name="cardElevation">@dimen/small_elevation</item>
+        <item name="cardUseCompatPadding">false</item>
+    </style>
+
+
+    <!--
+         ***********************************************************************
+                                    Button styles
+         ***********************************************************************
+    -->
+    <style name="BaseButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="materialThemeOverlay">@style/ButtonStyleThemeOverlay</item>
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/medium_margin</item>
+        <item name="android:layout_marginEnd">@dimen/medium_margin</item>
+        <item name="android:layout_marginBottom">@dimen/medium_margin</item>
+        <item name="android:accessibilityLiveRegion">none</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/text_size_biggest</item>
+        <item name="android:enabled">false</item>
+        <item name="cornerRadius">@dimen/medium_radius</item>
+    </style>
+
+    <style name="ButtonStyleThemeOverlay">
         <item name="colorPrimary">@color/colorPrimaryDark</item>
+    </style>
+
+
+    <!--
+         ***********************************************************************
+                                    ImageButton styles
+         ***********************************************************************
+    -->
+    <style name="BaseImageButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@null</item>
+        <item name="android:paddingStart">@dimen/medium_padding</item>
+        <item name="android:paddingTop">@dimen/medium_padding</item>
+        <item name="android:paddingEnd">@dimen/medium_padding</item>
+        <item name="android:paddingBottom">@dimen/medium_padding</item>
+    </style>
+
+
+    <!--
+         ***********************************************************************
+                                    ImageView styles
+         ***********************************************************************
+    -->
+    <style name="BaseImageViewPictureStyle">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:src">@drawable/ic_avatar</item>
+        <item name="android:background">@drawable/bg_circular_image_view</item>
+        <item name="android:importantForAccessibility">no</item>
+        <item name="android:padding">@dimen/small_padding</item>
+    </style>
+
+    <style name="BaseImageViewPictureStyle.Home">
+        <item name="android:layout_width">@dimen/act_home_iv_user</item>
+        <item name="android:layout_height">@dimen/act_home_iv_user</item>
+        <item name="android:background">@null</item>
+        <item name="android:padding">@null</item>
+    </style>
+
+
+    <!--
+         ***********************************************************************
+                                    TextView styles
+         ***********************************************************************
+    -->
+    <style name="BaseTextViewStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="BaseTextViewStyle.MediumTitle">
+        <item name="android:textSize">@dimen/text_size_medium_title</item>
+    </style>
+
+    <style name="BaseTextViewStyle.MediumTitle.Bold">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+    </style>
+
+    <style name="BaseTextViewStyle.BiggerText">
+        <item name="android:textSize">@dimen/text_size_bigger</item>
+    </style>
+
+    <style name="BaseTextViewStyle.BigText">
+        <item name="android:textSize">@dimen/text_size_big</item>
+    </style>
+
+
+    <!--
+         ***********************************************************************
+                                    TextInputLayout styles
+         ***********************************************************************
+    -->
+    <style name="BaseTextInputLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/medium_margin</item>
+        <item name="android:layout_marginTop">@dimen/medium_margin</item>
+        <item name="android:layout_marginEnd">@dimen/medium_margin</item>
+        <item name="android:paddingStart">@dimen/smallest_padding</item>
+        <item name="android:paddingEnd">@dimen/smallest_padding</item>
+        <item name="android:textColorHint">@color/colorWhite</item>
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+    </style>
+
+
+    <!--
+         ***********************************************************************
+                                    TextInputEditText styles
+         ***********************************************************************
+    -->
+    <style name="BaseTextInputEditTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/colorTransparent</item>
+        <item name="android:gravity">center_horizontal|bottom</item>
+        <item name="android:importantForAccessibility">no</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColorHint">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/text_size_medium_title</item>
+        <item name="android:fontFamily">@font/montserrat_bold</item>
     </style>
 
 </resources>

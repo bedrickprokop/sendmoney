@@ -18,30 +18,20 @@
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/ablActionBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorTransparent"
-            android:theme="@style/ActionBarTheme"
-            app:elevation="0dp"
+            style="@style/BaseAppBarLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <com.google.android.material.appbar.MaterialToolbar
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/mtActionBar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize">
+                style="@style/BaseToolbar">
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/act_contacts_mtv_title"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_size_medium_title"
-                    android:textStyle="bold" />
+                <TextView
+                    style="@style/BaseTextViewStyle.MediumTitle.Bold"
+                    android:text="@string/act_contacts_mtv_title" />
 
-            </com.google.android.material.appbar.MaterialToolbar>
+            </androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.AppBarLayout>
 

@@ -9,17 +9,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/mcContainer"
-        style="@style/Widget.MaterialComponents.CardView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/smallest_margin"
-        android:layout_marginBottom="@dimen/smallest_margin"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardBackgroundColor="@color/colorAccentDark"
-        app:cardCornerRadius="@dimen/medium_radius"
-        app:cardElevation="@dimen/small_elevation"
-        app:cardUseCompatPadding="false">
+        style="@style/BaseCardViewStyle.RecyclerViewItem">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clContainer"
@@ -30,47 +20,35 @@
 
             <ImageView
                 android:id="@+id/ivTransferPicture"
-                android:layout_width="@dimen/item_transfer_history_iv_transfer"
-                android:layout_height="@dimen/item_transfer_history_iv_transfer"
-                android:background="@drawable/bg_circular_image_view"
-                android:importantForAccessibility="no"
-                android:padding="10dp"
-                android:src="@drawable/ic_avatar"
+                style="@style/BaseImageViewPictureStyle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.textview.MaterialTextView
+            <TextView
                 android:id="@+id/mtvTransferName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/BaseTextViewStyle.MediumTitle"
                 android:layout_marginStart="@dimen/smaller_margin"
                 android:layout_marginTop="@dimen/medium_margin"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/text_size_medium_title"
                 app:layout_constraintBottom_toTopOf="@+id/mtvTransferPhone"
                 app:layout_constraintStart_toEndOf="@+id/ivTransferPicture"
                 app:layout_constraintTop_toTopOf="@id/ivTransferPicture"
                 tools:text="Bilbo Baggins" />
 
-            <com.google.android.material.textview.MaterialTextView
+            <TextView
                 android:id="@+id/mtvTransferPhone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/BaseTextViewStyle.BiggerText"
                 android:layout_marginStart="@dimen/smaller_margin"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/text_size_bigger"
                 app:layout_constraintStart_toEndOf="@+id/ivTransferPicture"
                 app:layout_constraintTop_toBottomOf="@+id/mtvTransferName"
                 tools:text="(11) 998 834 023" />
 
-            <com.google.android.material.textview.MaterialTextView
+            <TextView
                 android:id="@+id/mtvTransferValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/BaseTextViewStyle.BigText"
                 android:layout_marginStart="@dimen/smaller_margin"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/text_size_big"
                 app:layout_constraintStart_toEndOf="@+id/ivTransferPicture"
                 app:layout_constraintTop_toBottomOf="@+id/mtvTransferPhone"
                 tools:text="R$ 120,00" />
